@@ -49526,6 +49526,12 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+$(document).ready(function () {
+  $('.header__burger').click(function (event) {
+    $('.header__burger,.header__menu').toggleClass('active');
+    $('body').toggleClass('lock');
+  });
+});
 
 /***/ }),
 

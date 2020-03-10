@@ -75,7 +75,7 @@
     </footer>
 </div>
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-<script src="js/app.js"></script>
+<script type="text/javascript" src="{{ url('https://code.jquery.com/jquery-3.4.1.slim.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
