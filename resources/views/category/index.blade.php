@@ -9,25 +9,37 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-
-</body>
-</html>
-<ul>
+    <h1>Все категории</h1>
     <div class="wrapper">
         <div class="main">
             <div class="container">
+
                 <div class="main__content">
-                @foreach($categories as $category)
-                    <div class="card">
-                        <h2 class="title">{{ $category->title }}</h2>
-                        <a href="#">
-                            <img class="picture" src="{{ asset($category->image) }}">
-                        </a>
-                        <p class="vendor">some text</p>
-                    </div>
-                @endforeach
+
+                    @foreach($categories as $category)
+                        <div class="card">
+                            <h2 class="title">{{ $category->title }}</h2>
+                            <a href="#">
+                                <img class="picture" src="{{ asset($category->image) }}">
+                            </a>
+
+                            <form action="{{ route('Category.edit', ['Category' => $category]) }}" method="GET">
+                                @csrf
+                                <button type="submit">Редактировая</button>
+                            </form>
+
+                            <form action="{{ route('Category.destroy', ['Category' => $category]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Удалить</button>
+                            </form>
+
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </div>
-</ul>
+</body>
+</html>
+
