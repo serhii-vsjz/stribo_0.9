@@ -111,6 +111,7 @@ html,body{
     flex-wrap: wrap;
     .card {
         margin: 1%;
+        padding-bottom: 1%;
         box-shadow: 0 8px 14px rgba(0,0,0,0.25), 0 1px 1px rgba(0,0,0,0.22);
         &:hover {
             &:before {
@@ -118,7 +119,6 @@ html,body{
                 opacity: 0.5;
             }
             box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-
         }
 
         position: relative;
@@ -128,11 +128,34 @@ html,body{
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-
-
         border: $h_line;
         border-radius: 5px;
 
+        .form_action {
+            width: 90%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .form {
+                width: 45%;
+                .btn {
+                    border: $h_line;
+                    border-radius: 5px;
+                    padding: 5px;
+                    width: 100%;
+                    &:hover {
+                        box-shadow: inset 1px 0px 1px 1px rgba(18,53,72,0.5), inset -1px -1px 1px 1px rgba(18,53,72,0.5);
+                    }
+                }
+                .btn-edit {
+
+                }
+                .btn-delete {
+
+                }
+            }
+        }
 
         &:before {
             position: absolute;

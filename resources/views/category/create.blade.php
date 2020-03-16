@@ -4,8 +4,9 @@
     @csrf
     <label for="parent_id">Родительская категория</label>
     <select name="parent_id">
+            <option>0</option>
         @foreach($categories as $category)
-            <option>{{ $category->id }}</option>
+            <option value="{{ $category->id }}">{{$category->title}}</option>
         @endforeach
     </select>
     <input type="text" name="title" placeholder="title">

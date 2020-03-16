@@ -1,8 +1,9 @@
 
-<h1>Создать новую категорию</h1>
+<h1>Редактировать категорию</h1>
 
-<form action="{{ route('Category.store') }}" enctype="multipart/form-data" method="POST">
+<form action="{{ route('Category.update', ['Category' => $edited_category]) }}" enctype="multipart/form-data" method="POST">
     @csrf
+    @method('PUT')
     <label for="parent_id">Родительская категория</label>
     <select name="parent_id">
         @foreach($categories as $category)
@@ -15,5 +16,5 @@
     <img style="width: 200px" class="picture" src="{{ asset($edited_category->image) }}">
     <br>
     <input type="file" name="image">
-    <button type="submit">Добавить</button>
+    <button type="submit">Сохранить изменения</button>
 </form>

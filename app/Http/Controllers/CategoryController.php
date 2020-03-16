@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::all()->where('parent_id', 0);
 
         return view('category.index', compact('categories'));
     }
@@ -28,6 +28,7 @@ class CategoryController extends Controller
     public function create()
     {
         $categories = Category::all();
+
         return view('category.create', compact('categories'));
     }
 
@@ -53,9 +54,7 @@ class CategoryController extends Controller
         if($request->parent_id)
         {
             $category->parent_id = $request->parent_id;
-        }
-        else
-        {
+        } else {
             $category->parent_id = 0;
         }
 
@@ -74,7 +73,15 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $categories = $category->children;
+
+        if($categories->isEmpty())
+        {
+            $products = $category->products;
+            return view('product.index', compact('products'));
+        } else {
+            return view('category.index', compact('categories'));
+        }
     }
 
     /**
@@ -99,6 +106,28 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
+        $category->title = $request->title;
+
+        if($request->file('image'))
+        {
+            $image = $request->file('image')->store('images');
+            $category->image = $image;
+        }
+
+        if($request->parent_id)
+        {
+            $category->parent_id = $request->parent_id;
+        }
+        else
+        {
+            $category->parent_id = 0;
+        }
+
+        $category->vendor = $request->vendor;
+
+        $category->save();
+
+        return redirect(route('Category.index'));
 
     }
 
