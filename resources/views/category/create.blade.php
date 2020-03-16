@@ -1,3 +1,6 @@
+@extends('layouts.app-admin')
+
+@section('content')
 <h1>Создать новую категорию</h1>
 
 <form action="{{ route('Category.store') }}" enctype="multipart/form-data" method="POST">
@@ -14,3 +17,4 @@
     <input type="file" name="image">
     <button type="submit">Добавить</button>
 </form>
+@endsection

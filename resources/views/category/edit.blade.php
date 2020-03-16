@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <h1>Редактировать категорию</h1>
 
 <form action="{{ route('Category.update', ['Category' => $edited_category]) }}" enctype="multipart/form-data" method="POST">
@@ -18,3 +20,4 @@
     <input type="file" name="image">
     <button type="submit">Сохранить изменения</button>
 </form>
+@endsection

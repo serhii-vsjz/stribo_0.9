@@ -77,8 +77,7 @@ class CategoryController extends Controller
 
         if($categories->isEmpty())
         {
-            $products = $category->products;
-            return view('product.index', compact('products'));
+            return redirect(route('Product.list', ['Category' => $category]));
         } else {
             return view('category.index', compact('categories'));
         }

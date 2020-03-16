@@ -9,11 +9,8 @@
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('layouts.header')
+    @include('layouts.header-admin')
     @yield('content')
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
 
