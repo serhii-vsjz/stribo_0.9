@@ -14,15 +14,29 @@ use App\Category;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('admin');
 });
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::resource('Category', 'CategoryController');
-Route::resource('Product', 'ProductController');
+Route::get('category', 'CategoryController@index')->name('category.index');
+Route::get('category/create/{category}', 'CategoryController@create')->name('category.create');
+Route::post('category', 'CategoryController@store')->name('category.store');
+Route::get('category/{category}', 'CategoryController@show')->name('category.show');
+Route::get('category/{category}/edit', 'CategoryController@edit')->name('category.edit');
+Route::put('category/{category}', 'CategoryController@update')->name('category.update');
+Route::delete('category/{category}', 'CategoryController@destroy')->name('category.destroy');
+
+Route::get('product/{category?}', 'ProductController@index')->name('product.index');
+Route::get('product/create/{category}', 'ProductController@create')->name('product.create');
+Route::post('product', 'ProductController@store')->name('product.store');
+Route::get('product/show/{product}', 'ProductController@show')->name('product.show');
+Route::get('product/{product}/edit', 'ProductController@edit')->name('product.edit');
+Route::put('product/{product}', 'ProductController@update')->name('product.update');
+Route::delete('product/{product}', 'ProductController@destroy')->name('product.destroy');
+
+
 
 

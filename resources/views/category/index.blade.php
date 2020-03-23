@@ -1,33 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Все категории</h1>
-<div class="wrapper">
-    <div class="main">
-        <div class="container">
-            <div class="main__content">
-                @foreach($categories as $category)
-                    <div class="card">
-                        <h2 class="title">{{ $category->title }}</h2>
-                        <a href="{{ route('Category.show', ['Category' => $category]) }}">
-                            <img class="picture" src="{{ asset($category->image) }}">
-                        </a>
-                        <div class="form_action">
-                            <form class="form" action="{{ route('Category.edit', ['Category' => $category]) }}" method="GET">
-                                @csrf
-                                <button class="btn btn-edit" type="submit">Редактировая</button>
-                            </form>
+<div class="main__content">
+@foreach($categories as $category)
+    <div class="card">
+        <h2 class="title">{{ $category->title }} (k)</h2>
+        <a href="{{ route('category.show', ['category' => $category]) }}">
+            <img class="picture" src="{{ asset($category->image) }}">
+        </a>
 
-                            <form class="form" action="{{ route('Category.destroy', ['Category' => $category]) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button  class="btn btn-delete" type="submit">Удалить</button>
-                            </form>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
+        <div class="form_action">
+
+            <form class="form" action="{{ route('category.create', ['category' => $category]) }}" method="GET">
+                @csrf
+                <button class="btn btn-edit" type="submit">Категорию</button>
+            </form>
+            <form class="form" action="{{ route('product.create', ['category' => $category]) }}" method="GET">
+                @csrf
+                <button class="btn btn-edit" type="submit">Товар</button>
+            </form>
+
+            <form class="form" action="{{ route('category.edit', ['category' => $category]) }}" method="GET">
+                @csrf
+                <button class="btn btn-edit" type="submit">Изменить</button>
+            </form>
+
+            <form class="form" action="{{ route('category.destroy', ['category' => $category]) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button  class="btn btn-delete" type="submit">Удалить</button>
+            </form>
         </div>
     </div>
+@endforeach
 </div>
+
 @endsection

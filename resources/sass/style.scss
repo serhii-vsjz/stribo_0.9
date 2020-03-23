@@ -1,4 +1,4 @@
-$h_line: 1px solid #C0C0C0;
+$border_line: 1px solid #C0C0C0;
 /*Обнуление*/ *,*:before,*:after{
     padding: 0;
     margin: 0;
@@ -16,10 +16,9 @@ html,body{
     max-width: 1200px; // Контейнер ограничен по ширине
     margin: 0 auto;
     padding: 0px 10px;
-    display: inherit;
 }
 
-.header {
+.header-top {
     position: fixed; // при скроле шапка всега сверху
     width: 100%;
     top: 0;
@@ -27,7 +26,7 @@ html,body{
     z-index: 50; // Большой z-index чтобы накрыть весь контент
 }
 
-.header:before { // - создает псевдоэлемент, который являеться первым потомком выбраного ел. (Исп. для добавления косметического содержимого в элемент с помощью content
+.header-top:before { // - создает псевдоэлемент, который являеться первым потомком выбраного ел. (Исп. для добавления косметического содержимого в элемент с помощью content
     content: '';
     position: absolute;
     top: 0;
@@ -35,8 +34,8 @@ html,body{
     width: 100%;
     height: 100%;
     background-color: white;
-    border-top: $h_line;
-    border-bottom: $h_line;
+    border-top: $border_line;
+    border-bottom: $border_line;
     z-index: 2;
 }
 
@@ -46,7 +45,6 @@ html,body{
     justify-content: space-between; // раскидать flex-елементы по сторонам
     height: 80px; // ограничить по высоте
     align-items: center; // выставить по центру
-
 }
 
 .header__logo {
@@ -55,6 +53,11 @@ html,body{
     overflow: hidden;
     position: relative;
     z-index: 3;
+}
+
+.header__contact {
+    display: none;
+
 }
 .header__logo img {
     max-width: 100%;
@@ -81,26 +84,17 @@ html,body{
     text-transform: uppercase;
     font-size: 18px;
     text-decoration: none;
+    &:hover {
+        text-shadow: 0 1px rgba(0,0,0,0.25);
+    }
 }
 
 .main {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
+    margin-top: 20px;
 }
 
-.main__menu {
-    display: none;
-    width: 20%;
-    border: $h_line;
-
-    ul {
-        list-style-type: none;
-    }
-}
 .main__content {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
     .card {
@@ -122,7 +116,7 @@ html,body{
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        border: $h_line;
+        border: $border_line;
         border-radius: 5px;
 
         .form_action {
@@ -130,11 +124,12 @@ html,body{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            flex-wrap: wrap;
 
             .form {
                 width: 45%;
                 .btn {
-                    border: $h_line;
+                    border: $border_line;
                     border-radius: 5px;
                     padding: 5px;
                     width: 100%;
@@ -174,7 +169,6 @@ html,body{
             z-index: 2;
             &:hover {
                 opacity: 1;
-
             }
         }
 
@@ -186,41 +180,47 @@ html,body{
     }
 }
 
-.footer {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    position: fixed; /* Фиксированное положение */
-    left: 0; bottom: 0; /* Левый нижний угол */
-    opacity: 0.7;
-    background-color: grey;
-    width: 100%;
-    height: 40px;
-    color: white;
-    font-family: Snell Roundhand, cursive;
-
-    span {
-        margin-right: 10px;
-        float: right;
-        &:before {
-            content: '\272A';
-        }
-    }
-}
-
 // burger menu
 @media (max-width: 767px) {
 
-
-    // std list start
     body.lock {
         overflow: hidden;
+    }
+    .contact {
+        display: none;
     }
     .header__body {
         height: 50px;
     }
     .header__logo {
         flex: 0 0 40px;
+    }
+    .header__contact {
+        display: flex;
+        flex: 0 0 150px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        position: relative;
+        z-index: 3;
+
+
+        a {
+            text-decoration: none;
+        }
+        .phone {
+            &:before {
+                content: '\2706';
+                font-size: 30px;
+            }
+        }
+        .email {
+            &:before {
+                content: '\2709';
+                font-size: 30px;
+            }
+        }
     }
     .header__burger {
         display: block;
@@ -276,7 +276,7 @@ html,body{
         height: 100%;
         overflow: auto;
         transition: all 0.3s ease 0s;
-        background-color: #18b5a4;
+        background-color: white;
         padding: 70px 10px 20px 10px;
     }
     .header__menu.active {
@@ -291,6 +291,31 @@ html,body{
     .header__link {
         font-size: 24px;
     }
-    // std list start
 
+    .main {
+        margin-top: 60px;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed; /* Фиксированное положение */
+    left: 0; bottom: 0; /* Левый нижний угол */
+    opacity: 0.7;
+    background-color: grey;
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-family: Snell Roundhand, cursive;
+    z-index: 5;
+
+    span {
+        margin-right: 10px;
+        float: right;
+        &:before {
+            content: '\272A';
+        }
+    }
 }

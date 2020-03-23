@@ -1,27 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="wrapper">
-    <div class="main">
-        <div class="container">
-            <div class="main__content">
-                <h1>Создать новый продукт </h1>
-                <form action="{{ route('Product.store') }}" enctype="multipart/form-data" method="POST">
-                    @csrf
-                    <label for="parent_id">Родительская категория</label>
-                    <select name="parent_id">
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{$category->title}}</option>
-                        @endforeach
-                    </select>
-                    <input type="text" name="title" placeholder="title">
-                    <input type="text" name="vendor" placeholder="vendor">
-                    <input type="file" name="image">
-                    <button type="submit">Добавить</button>
-                </form>
-                @endsection
 
-            </div>
+<div class="main">
+    <div class="container">
+        <div class="category__create">
+            <h1>Создать новый продукт </h1>
+            <p>
+
+                {{--{{ \Illuminate\Support\Facades\Route::currentRouteName() }}--}}
+
+            </p>
+
+            <form action="{{ route('product.store') }}" enctype="multipart/form-data" method="POST">
+                @csrf
+                <div class="form-group">
+                    <label for="title">Название продукта</label>
+                    <input type="text"  name="title" id="title" class="form-control">
+                </div>
+
+                @include('category._form')
+
+                <div class="form-group">
+                    <label for="vendor">Артикул</label>
+                    <input type="text"  name="vendor" id="vendor" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="file">Изображение</label>
+                    <input type="file" name="file" id="file" class="input-file">
+                </div>
+
+                <button type="submit" class="btn">Создать</button>
+            </form>
+
         </div>
     </div>
 </div>
+
+@endsection
+

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -17,19 +16,22 @@ class CategoryController extends Controller
     {
         $categories = Category::all()->where('parent_id', 0);
 
-        return view('category.index', compact('categories'));
+        return view('category.index', ['categories' => $categories]);
     }
 
     /**
      * Show the form for creating a new resource.
      *
+     * @param Category|null $category
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Category $category = NULL)
     {
-        $categories = Category::all();
-
-        return view('category.create', compact('categories'));
+        return view('category.create', [
+            'category' => $category,
+            'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'delimiter' => ' ',
+        ]);
     }
 
     /**
@@ -40,29 +42,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-       /* $this->validate($request, [
-            'content' => 'required',
-            'image' => 'required|mimes:jpeg,jpg|dimension:min_width=1000,min_height=500'
-        ]);*/
 
         $category = new Category();
         $category->title = $request->title;
 
-        $image = $request->file('image')->store('images');
-        $category->image = $image;
-
-        if($request->parent_id)
+        if ($request->file('file'))
         {
-            $category->parent_id = $request->parent_id;
+            $image = $request->file('file')->store('images');
+            $category->image = $image;
         } else {
-            $category->parent_id = 0;
+            $category->image = 'images/empty.png';
         }
 
-        $category->vendor = $request->vendor;
+        $category->parent_id = $request->parent_id;
 
         $category->save();
 
-        return redirect(route('Category.index'));
+        return redirect(route('category.index'));
     }
 
     /**
@@ -73,13 +69,16 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        $categories = $category->children;
 
-        if($categories->isEmpty())
+        if ($category->children->isNotEmpty())
         {
-            return redirect(route('Product.list', ['Category' => $category]));
+            return view('category.index', [
+                'categories' => $category->children,
+            ]);
         } else {
-            return view('category.index', compact('categories'));
+            return redirect(route('product.index', [
+                'category' => $category
+            ]));
         }
     }
 
@@ -91,9 +90,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        $categories = Category::all();
-        $edited_category = $category;
-        return view('category.edit', compact('edited_category','categories'));
+        return view('category.edit', [
+            'category' => $category,
+            'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'delimiter' => ' ',
+        ]);
     }
 
     /**
@@ -107,9 +108,9 @@ class CategoryController extends Controller
     {
         $category->title = $request->title;
 
-        if($request->file('image'))
+        if($request->file('file'))
         {
-            $image = $request->file('image')->store('images');
+            $image = $request->file('file')->store('images');
             $category->image = $image;
         }
 
@@ -126,8 +127,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect(route('Category.index'));
-
+        return redirect(route('category.index'));
     }
 
     /**
@@ -140,6 +140,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect(route('Category.index'));
+        return redirect(route('category.index'));
     }
 }
