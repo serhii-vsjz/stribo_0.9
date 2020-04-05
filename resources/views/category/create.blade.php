@@ -9,6 +9,7 @@
 
             <form action="{{ route('category.store') }}" enctype="multipart/form-data" method="POST">
                 @csrf
+
                 <div class="form-group">
                     <label for="title">Название категории</label>
                     <input type="text"  name="title" id="title" class="form-control">

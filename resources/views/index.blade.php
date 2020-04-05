@@ -67,12 +67,12 @@
             </div>
         </div>
     </div>
-
     <footer class="footer">
         <span>
             jzik studio
         </span>
     </footer>
+
 </div>
 
 <script type="text/javascript" src="{{ url('https://code.jquery.com/jquery-3.4.1.slim.min.js') }}"></script>

@@ -4,7 +4,7 @@
 <div class="main__content">
 @foreach($categories as $category)
     <div class="card">
-        <h2 class="title">{{ $category->title }} (k)</h2>
+        <h2 class="title">{{ $category->title }}</h2>
         <a href="{{ route('category.show', ['category' => $category]) }}">
             <img class="picture" src="{{ asset($category->image) }}">
         </a>
