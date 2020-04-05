@@ -22,7 +22,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('category', 'CategoryController@index')->name('category.index');
-Route::get('category/create/{category}', 'CategoryController@create')->name('category.create');
+Route::get('category/create/{category?}', 'CategoryController@create')->name('category.create');
 Route::post('category', 'CategoryController@store')->name('category.store');
 Route::get('category/{category}', 'CategoryController@show')->name('category.show');
 Route::get('category/{category}/edit', 'CategoryController@edit')->name('category.edit');
