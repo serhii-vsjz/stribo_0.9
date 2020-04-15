@@ -56,16 +56,29 @@ html,body{
 }
 
 .header__contact {
+    flex: 0 0 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
     display: none;
-
+    opacity: 80%;
 }
+
 .header__logo img {
     max-width: 100%;
     display: block; // Убрать обрезание картинки
 }
+
+.header__contact img {
+    max-width: 100%;
+    display: block; // Убрать обрезание картинки
+}
+
 .header__burger{
     display: none;
 }
+
 .header__menu {}
 
 .header__list {
@@ -98,27 +111,40 @@ html,body{
     justify-content: space-evenly;
     flex-wrap: wrap;
     .card {
-        margin: 1%;
+
+        padding-top: 5px;
         padding-bottom: 1%;
-        box-shadow: 0 8px 14px rgba(0,0,0,0.25), 0 1px 1px rgba(0,0,0,0.22);
-        &:hover {
-            &:before {
-                background-color: #185372;
-                opacity: 0.5;
-            }
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-        }
-
+        // box-shadow: 0 8px 14px rgba(0,0,0,0.25), 0 1px 1px rgba(0,0,0,0.22);
         position: relative;
-        flex: 0 0 250px;
-
+        flex: 0 0 260px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         border: $border_line;
-        border-radius: 5px;
 
+        .title {
+            color: grey;
+            top: 0;
+        }
+
+        .picture {
+            position: relative;
+
+            width: 100%;
+            opacity: 0.9;
+
+            z-index: 2;
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .vendor {
+            color: #a5c9d9;
+            text-align: center;
+
+        }
         .form_action {
             width: 90%;
             display: flex;
@@ -152,35 +178,22 @@ html,body{
             background-color: grey;
             width: 100%;
             height: 40%;
-            opacity: 0.5;
+            opacity: 0.2;
             z-index: 1;
+            top: 30%;
         }
 
-        .title {
-            color: grey;
-        }
-
-        .picture {
-            position: relative;
-
-            width: 100%;
-            opacity: 0.9;
-
-            z-index: 2;
-            &:hover {
-                opacity: 1;
+        &:hover {
+            &:before {
+                background-color: #185372;
+                opacity: 0.5;
             }
-        }
-
-        .vendor {
-            color: #a5c9d9;
-            text-align: center;
-
+            // box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         }
     }
 }
 
-// burger menu
+// media
 @media (max-width: 767px) {
 
     body.lock {
@@ -197,30 +210,7 @@ html,body{
     }
     .header__contact {
         display: flex;
-        flex: 0 0 150px;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        overflow: hidden;
-        position: relative;
-        z-index: 3;
-
-
-        a {
-            text-decoration: none;
-        }
-        .phone {
-            &:before {
-                content: '\2706';
-                font-size: 30px;
-            }
-        }
-        .email {
-            &:before {
-                content: '\2709';
-                font-size: 30px;
-            }
-        }
+        flex: 0 0 40px;
     }
     .header__burger {
         display: block;
@@ -254,11 +244,9 @@ html,body{
     .header__burger:after {
         bottom: 0;
     }
-
     .header__burger.active span {
         transform: scale(0);
     }
-
     .header__burger.active:before{
         transform: rotate(45deg);
         top: 9px;
@@ -267,7 +255,6 @@ html,body{
         transform: rotate(-45deg);
         bottom: 9px;
     }
-
     .header__menu {
         position: fixed;
         top: -100%; // начальное положение
@@ -294,6 +281,11 @@ html,body{
 
     .main {
         margin-top: 60px;
+    }
+    .main__content {
+        .card {
+            flex: 0 0 50%;
+        }
     }
 }
 

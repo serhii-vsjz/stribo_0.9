@@ -4,19 +4,16 @@
             <a href="#" class="header__logo">
                 <img src="{{ asset('img/logo.jpg') }}" alt="">
             </a>
-            <div class="header__contact">
-                <div class="phone">
-                    <a href="tel:+380500557775"></a>
 
-                </div>
-                <div class="email">
-                    <a href="mailto:+380500557775"></a>
-                </div>
-            </div>
+            <a href="#" class="header__contact">
+                <img src="{{ asset('img/phone.jpg') }}" alt="">
+            </a>
 
-            <div class="header__burger">
-                <span></span>
-            </div>
+            <a href="#" class="header__contact">
+                <img src="{{ asset('img/email.jpg') }}" alt="">
+            </a>
+
+
             <nav class="header__menu">
                 <ul class="header__list">
                     <li>
@@ -29,13 +26,18 @@
                         <a href="" class="header__link">Оборудование</a>
                     </li>
                     <li>
-                        <a href="" class="header__link">Контакты</a>
+                        <a href="{{ route('contacts') }}" class="header__link">Контакты</a>
                     </li>
                     <li>
                         <a href="" class="header__link">О нас</a>
                     </li>
                 </ul>
             </nav>
+
+            <div class="header__burger">
+                <span></span>
+            </div>
+
         </div>
     </div>
 </header>
