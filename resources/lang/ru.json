@@ -10,6 +10,6 @@
     "Forgot Your Password?": "Забыли пароль?",
     "Confirm Password": "Повторить пароль",
     "Reset Password": "Сбросить пароль",
-    "Send Password Reset Link": "Отправить ссылку для сброса пароля"
-
+    "Send Password Reset Link": "Отправить ссылку для сброса пароля",
+    "We have emailed your password reset link!": "Мы отправили вам ссылку для сброса пароля по электронной почте!"
 }
