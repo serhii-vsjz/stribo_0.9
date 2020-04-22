@@ -31,6 +31,10 @@ Route::get('/contacts', function () {
     return view('home.contacts');
 })->name('contacts');
 
+Route::get('/about', function () {
+    return view('home.about');
+})->name('about');
+
 Route::get('category', 'CategoryController@index')->name('category.index');
 Route::get('category/create/{category?}', 'CategoryController@create')->name('category.create');
 Route::post('category', 'CategoryController@store')->name('category.store');

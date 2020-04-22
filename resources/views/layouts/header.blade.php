@@ -33,7 +33,7 @@
                         <a href="{{ route('contacts') }}" class="header__link">Контакты</a>
                     </li>
                     <li>
-                        <a href="" class="header__link">О нас</a>
+                        <a href="{{ route('about')}}" class="header__link">О нас</a>
                     </li>
                 </ul>
             </nav>
