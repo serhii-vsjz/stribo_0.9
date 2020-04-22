@@ -21,7 +21,8 @@
         </a>
 
         <hr>
-        <a href="{{ route('product.create') }}">
+        {{--<a href="{{ route('product.create') }}">--}}
+        <a href="">
             Создать продукт
         </a>
     </div>

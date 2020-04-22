@@ -14,6 +14,7 @@ html,body{
 
 .container {
     max-width: 1200px; // Контейнер ограничен по ширине
+    min-width: 320px; // Контейнер ограничен по ширине
     margin: 0 auto;
     padding: 0px 10px;
 }
@@ -62,15 +63,9 @@ html,body{
     position: relative;
     z-index: 3;
     display: none;
-    opacity: 80%;
 }
 
 .header__logo img {
-    max-width: 100%;
-    display: block; // Убрать обрезание картинки
-}
-
-.header__contact img {
     max-width: 100%;
     display: block; // Убрать обрезание картинки
 }
@@ -132,6 +127,7 @@ html,body{
             position: relative;
 
             width: 100%;
+            height: auto;
             opacity: 0.9;
 
             z-index: 2;
@@ -181,6 +177,7 @@ html,body{
             opacity: 0.2;
             z-index: 1;
             top: 30%;
+            display: none;
         }
 
         &:hover {
@@ -211,6 +208,16 @@ html,body{
     .header__contact {
         display: flex;
         flex: 0 0 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        z-index: 3;
+        border: 1px solid red;
+    }
+    .header__contact img {
+        width: 100%;
+        height: auto;
+        display: block; // Убрать обрезание картинки
     }
     .header__burger {
         display: block;

@@ -9,6 +9,8 @@
             <img class="picture" src="{{ asset($category->image) }}">
         </a>
 
+
+        @can('is_admin')
         <div class="form_action">
 
             <form class="form" action="{{ route('category.create', ['category' => $category]) }}" method="GET">
@@ -31,6 +33,8 @@
                 <button  class="btn btn-delete" type="submit">Удалить</button>
             </form>
         </div>
+        @endcan
+
     </div>
 @endforeach
 </div>

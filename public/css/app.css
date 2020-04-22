@@ -13,6 +13,7 @@ html, body {
 /* Основные стили */
 .container {
   max-width: 1200px;
+  min-width: 320px;
   margin: 0 auto;
   padding: 0px 10px; }
 
@@ -55,14 +56,9 @@ html, body {
   overflow: hidden;
   position: relative;
   z-index: 3;
-  display: none;
-  opacity: 80%; }
+  display: none; }
 
 .header__logo img {
-  max-width: 100%;
-  display: block; }
-
-.header__contact img {
   max-width: 100%;
   display: block; }
 
@@ -109,6 +105,7 @@ html, body {
     .main__content .card .picture {
       position: relative;
       width: 100%;
+      height: auto;
       opacity: 0.9;
       z-index: 2; }
       .main__content .card .picture:hover {
@@ -139,7 +136,8 @@ html, body {
       height: 40%;
       opacity: 0.2;
       z-index: 1;
-      top: 30%; }
+      top: 30%;
+      display: none; }
     .main__content .card:hover:before {
       background-color: #185372;
       opacity: 0.5; }
@@ -159,7 +157,17 @@ html, body {
 
   .header__contact {
     display: flex;
-    flex: 0 0 40px; }
+    flex: 0 0 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+    border: 1px solid red; }
+
+  .header__contact img {
+    width: 100%;
+    height: auto;
+    display: block; }
 
   .header__burger {
     display: block;

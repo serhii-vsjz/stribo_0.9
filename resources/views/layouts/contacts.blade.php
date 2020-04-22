@@ -12,7 +12,7 @@
             </div>
             <div class="login__right">
                 <div class="login">
-                    user
+                    <a href="{{ route('login') }}">user</a>
                 </div>
 
             </div>
