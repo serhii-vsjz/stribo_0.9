@@ -12,7 +12,19 @@
             </div>
             <div class="login__right">
                 <div class="login">
-                    <a href="{{ route('login') }}">user</a>
+                    <!-- Authentication Links -->
+                    @guest
+                        <a href="{{ route('login') }}">Войти</a>
+                    @else
+                        <form action="" method="POST">
+                            @csrf
+                            <button type="submit" formaction="{{ route('user') }}" formmethod="GET">{{ Auth::user()->name }}</button>
+                            <br>
+                            <button type="submit" formaction="{{ route('logout') }}">Выйти</button>
+                        </form>
+{{--                        <a href="{{ route('logout') }}">{{ Auth::user()->name }}</a>--}}
+                    @endguest
+
                 </div>
 
             </div>

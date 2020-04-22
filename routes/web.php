@@ -17,7 +17,14 @@ use App\Category;
 Route::get('/admin', function () {
     return view('admin');
 });
+
+Route::get('/user', function () {
+    return view('user');
+})->name('user');
+
+
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/contacts', function () {
     return view('home.contacts');
