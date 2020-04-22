@@ -161,8 +161,7 @@ html, body {
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    z-index: 3;
-    border: 1px solid red; }
+    z-index: 3; }
 
   .header__contact img {
     width: 100%;
@@ -301,6 +300,10 @@ html, body {
       padding: 0 20px; }
       .contact__body .login__right .login:before {
         content: "\272A"; }
+      .contact__body .login__right .login a {
+        color: black;
+        text-decoration: none;
+        margin-left: 10px; }
 
 @media (max-width: 767px) {
   .contact {

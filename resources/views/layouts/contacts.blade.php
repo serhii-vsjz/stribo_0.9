@@ -14,7 +14,9 @@
                 <div class="login">
                     <!-- Authentication Links -->
                     @guest
-                        <a href="{{ route('login') }}">Войти</a>
+                        <a href="{{ route('login') }}">Вход</a>
+                        <br>
+                        <a href="{{ route('register') }}"> Регистрация</a>
                     @else
                         <form action="" method="POST">
                             @csrf
