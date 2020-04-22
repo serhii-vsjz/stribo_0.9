@@ -13,6 +13,7 @@ use App\Category;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
 
 Route::get('/admin', function () {
     return view('admin');
@@ -20,7 +21,7 @@ Route::get('/admin', function () {
 
 Route::get('/user', function () {
     return view('user');
-})->name('user');
+})->name('user')->middleware('verified');
 
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -29,8 +30,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contacts', function () {
     return view('home.contacts');
 })->name('contacts');
-
-Auth::routes(['verify' => true]);
 
 Route::get('category', 'CategoryController@index')->name('category.index');
 Route::get('category/create/{category?}', 'CategoryController@create')->name('category.create');
