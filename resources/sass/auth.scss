@@ -1,0 +1,42 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-header {
+    color: dimgrey;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 420px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.form-group {
+    align-items: center;
+}
+
+.form-control {
+    border: 1px solid grey;
+    height: 30px;
+    width: 100%;
+}
+.btn {
+
+}
+.btn-primary {
+    margin-top: 5px;
+    border: $border_line;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+    padding: 5px;
+}
