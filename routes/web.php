@@ -30,7 +30,7 @@ Route::get('/contacts', function () {
     return view('home.contacts');
 })->name('contacts');
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('category', 'CategoryController@index')->name('category.index');
 Route::get('category/create/{category?}', 'CategoryController@create')->name('category.create');
