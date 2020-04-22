@@ -1,15 +1,19 @@
 <header class="header-top">
     <div class="container">
         <div class="header__body">
-            <a href="#" class="header__logo">
+            <a href="{{ route('home') }}" class="header__logo">
                 <img src="{{ asset('img/logo.jpg') }}" alt="">
             </a>
 
-            <a href="#" class="header__contact">
+            <a href="tel:0500557775" class="header__contact">
                 <img src="{{ asset('img/phone.jpg') }}" alt="">
             </a>
 
-            <a href="#" class="header__contact">
+            <a href="viber://chat?number=+380500557775" class="header__contact">
+                <img src="{{ asset('img/viber.jpg') }}" alt="">
+            </a>
+
+            <a href="mailto:pneumo.sales@gmail.com" class="header__contact">
                 <img src="{{ asset('img/email.jpg') }}" alt="">
             </a>
 

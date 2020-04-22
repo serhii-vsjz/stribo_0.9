@@ -18,7 +18,7 @@
 
         .mail {
             &:before {
-                content: "\2706 ";
+                content: "mail: ";
             }
 
             display: inherit;
@@ -29,13 +29,17 @@
 
         .phone {
             &:before {
-                content: '\2706 ';
+                content: 'tel: ';
             }
 
             display: inherit;
             align-items: center;
             border-right: $border_line;
             padding: 0 50px;
+            a {
+                text-decoration: none;
+                color: black;
+            }
         }
 
     }

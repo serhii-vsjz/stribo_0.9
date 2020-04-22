@@ -7,7 +7,7 @@
                     <span>pneumo.sales@gmail.com</span>
                 </div>
                 <div class="phone">
-                    050 055 777 5
+                    <a href="tel:0500557775">050 055 777 5</a>
                 </div>
             </div>
             <div class="login__right">

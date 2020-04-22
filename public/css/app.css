@@ -281,14 +281,17 @@ html, body {
       border-right: 1px solid #C0C0C0;
       padding-right: 20px; }
       .contact__body .contact__left .mail:before {
-        content: "\2706 "; }
+        content: "mail: "; }
     .contact__body .contact__left .phone {
       display: inherit;
       align-items: center;
       border-right: 1px solid #C0C0C0;
       padding: 0 50px; }
       .contact__body .contact__left .phone:before {
-        content: '\2706 '; }
+        content: 'tel: '; }
+      .contact__body .contact__left .phone a {
+        text-decoration: none;
+        color: black; }
   .contact__body .login__right {
     display: flex;
     flex-direction: row;
