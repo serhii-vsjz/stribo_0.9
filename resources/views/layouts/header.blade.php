@@ -9,7 +9,7 @@
                 <img src="{{ asset('img/phone.jpg') }}" alt="">
             </a>
 
-            <a href="viber://chat?number=+380500557775" class="header__contact">
+            <a href="viber://chat?number=%2B380500557775" class="header__contact">
                 <img src="{{ asset('img/viber.jpg') }}" alt="">
             </a>
 
