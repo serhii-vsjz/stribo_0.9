@@ -8,6 +8,7 @@
     <title>Document</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <meta name="google-site-verification" content="sRYLW56TPQHIWD7zzKuKDY6YbgbPFUdRdEA3rm92ViM" />
 </head>
 <body>
     @include('layouts.header')
