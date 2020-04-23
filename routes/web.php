@@ -21,8 +21,10 @@ Route::get('/admin', function () {
 
 Route::get('/user', function () {
     return view('user');
-})->name('user')->middleware('verified');
+})->name('user');
 
+/*for verified email*/
+/*->middleware('verified')*/
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');

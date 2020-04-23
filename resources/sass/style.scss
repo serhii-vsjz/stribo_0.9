@@ -111,7 +111,7 @@ html,body{
         padding-bottom: 1%;
         // box-shadow: 0 8px 14px rgba(0,0,0,0.25), 0 1px 1px rgba(0,0,0,0.22);
         position: relative;
-        flex: 0 0 260px;
+        flex: 0 0 250px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -121,6 +121,8 @@ html,body{
         .title {
             color: grey;
             top: 0;
+            text-align: center;
+            font-size: 1.4em;
         }
 
         .picture {
