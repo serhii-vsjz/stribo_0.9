@@ -100,7 +100,7 @@ html, body {
     align-items: center;
     border: 1px solid #C0C0C0; }
     .main__content .card .title {
-      color: grey;
+      color: red;
       top: 0;
       text-align: center;
       font-size: 1.4em; }
