@@ -101,10 +101,9 @@ html, body {
     align-items: center;
     border: 1px solid #C0C0C0; }
     .main__content .card .title {
-      color: red;
       top: 0;
       text-align: center;
-      font-size: 1.4em; }
+      font-size: 1.2em; }
     .main__content .card .picture {
       position: relative;
       width: 100%;
