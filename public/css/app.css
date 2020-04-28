@@ -146,7 +146,7 @@ html, body {
 
 .main__content {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap; }
   .main__content .card {
     overflow: hidden;
@@ -473,7 +473,7 @@ html, body {
       content: 'ipads p'; } }
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (orientation: portrait) {
   .main__content .card {
-    flex: 0 0 33.3333%;
+    flex: 0 0 50%;
     background-color: #e7e405; } }
 @media only screen and (min-device-width: 480px) and (max-device-width: 767px) and (orientation: landscape) {
   .main__content .card {
