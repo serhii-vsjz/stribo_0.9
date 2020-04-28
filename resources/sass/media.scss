@@ -1,5 +1,5 @@
-// base
-@media (max-width : 1024px) {
+// show burger menu
+@media (max-width : 768px) {
     body.lock {
         overflow: hidden;
     }
@@ -98,95 +98,5 @@
     }
     .container {
         padding: 0 4px;
-    }
-    .main__content {
-        .card {
-            flex: 0 0 33.33%;
-        }
-    }
-}
-
-@media (min-width : 768px) and (max-width : 1024px) and (orientation : landscape) {
-
-    .container {
-        padding: 0 4px;
-    }
-
-    .main__content {
-        .card {
-            flex: 0 0 25%;
-        }
-    }
-}
-
-@media (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-
-    .container {
-        padding: 0 4px;
-    }
-
-    .main__content {
-        .card {
-            flex: 0 0 25%;
-        }
-    }
-}
-
-@media only screen and (min-device-width : 320px) and (orientation : portrait) {
-
-    .container {
-        padding: 0 4px;
-    }
-
-    .main__content {
-        .card {
-            flex: 0 0 33.33%;
-        }
-    }
-}
-
-@media only screen and (min-device-width : 321px) and (orientation : landscape) {
-
-    .container {
-        padding: 0 4px;
-    }
-
-    .main__content {
-        .card {
-            flex: 0 0 25%;
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-@media (max-width : 320px) {
-    .container {
-        padding: 0 4px;
-    }
-
-    .main__content {
-        .card {
-            flex: 0 0 100%;
-        }
-    }
-}
-
-// width more than 1824px
-@media (min-width : 1824px) {
-    .container {
-        max-width: 1760px;
-    }
-    .main__content {
-        .card {
-            flex: 0 0 16.66%;
-        }
     }
 }
