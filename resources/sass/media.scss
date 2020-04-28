@@ -98,13 +98,11 @@
     }
 }
 
-/*
 // only screen
 @media only screen and (min-width: 1200px) {
     .main__content {
         .card {
             flex: 0 0 20%;
-            background-color: red;
         }
     }
 }
@@ -112,7 +110,6 @@
     .main__content {
         .card {
             flex: 0 0 25%;
-            background-color: red;
         }
     }
 }
@@ -120,7 +117,6 @@
     .main__content {
         .card {
             flex: 0 0 33.33%;
-            background-color: red;
         }
     }
 }
@@ -128,7 +124,6 @@
     .main__content {
         .card {
             flex: 0 0 50%;
-            background-color: red;
         }
     }
 }
@@ -136,21 +131,16 @@
     .main__content {
         .card {
             flex: 0 0 100%;
-            background-color: red;
         }
     }
 }
-*/
+
 
 // iPads (Ландшафтный)
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
     .main__content {
         .card {
             flex: 0 0 25%;
-            &:before{
-                content: 'ipads l';
-            }
-            background-color: #000057;
         }
     }
 }
@@ -160,10 +150,6 @@
     .main__content {
         .card {
             flex: 0 0 33.3333%;
-            &:before{
-                content: 'ipads p';
-            }
-            background-color: #000057;
         }
     }
 }
@@ -173,7 +159,7 @@
     .main__content {
         .card {
             flex: 0 0 50%;
-            background-color: #e7e405;
+            background-color: yellow;
         }
     }
 }
@@ -183,7 +169,7 @@
     .main__content {
         .card {
             flex: 0 0 25%;
-            background-color: #e7e405;
+            background-color: yellow;
         }
     }
 }
