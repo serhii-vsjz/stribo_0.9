@@ -2,7 +2,7 @@
     <option value="{{ $categoryItem->id }}"
 
     @isset ($category->id)
-        @if ($category->parent_id == $categoryItem->id)
+        @if ($category->id == $categoryItem->id)
             selected=""
         @endif
     @endisset
