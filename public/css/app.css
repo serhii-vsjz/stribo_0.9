@@ -416,11 +416,11 @@ html, body {
 
   .main {
     margin-top: 60px; } }
-@media only screen and (min-width: 321px) {
+@media (min-width: 321px) {
   .main__content .card {
     flex: 0 0 25%;
     background-color: green; } }
-@media only screen and (max-width: 320px) {
+@media (max-width: 320px) {
   .main__content .card {
     flex: 0 0 50%;
     background-color: green; } }
