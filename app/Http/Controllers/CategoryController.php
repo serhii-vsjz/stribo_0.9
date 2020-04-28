@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -16,7 +17,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all()->where('parent_id', 0);
 
-        return view('category.index', ['categories' => $categories]);
+        return view('category.index', ['categories' => $categories, 'subCategory' => '']);
     }
 
     /**
@@ -58,7 +59,9 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect(route('category.index'));
+        $urls = array();
+
+        return redirect()->back();
     }
 
     /**
@@ -74,6 +77,7 @@ class CategoryController extends Controller
         {
             return view('category.index', [
                 'categories' => $category->children,
+                'subCategory' => $category,
             ]);
         } else {
             return redirect(route('product.index', [
@@ -140,6 +144,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect(route('category.index'));
+        return redirect()->back();
     }
 }

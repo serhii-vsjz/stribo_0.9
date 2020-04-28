@@ -2,8 +2,14 @@
     <option value="{{ $categoryItem->id }}"
 
     @isset ($category->id)
-        @if ($category->id == $categoryItem->id)
-            selected=""
+        @if(Route::is('category.edit'))
+            @if($category->parent_id == $categoryItem->id)
+                selected=""
+            @endif
+        @else
+            @if ($category->id == $categoryItem->id)
+                selected=""
+            @endif
         @endif
     @endisset
     >

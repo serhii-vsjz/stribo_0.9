@@ -24,7 +24,7 @@
 
                 <form class="form" action="{{ route('category.edit', ['category' => $category]) }}" method="GET">
                     @csrf
-                    <button class="btn btn-edit" type="submit">Изменить</button>
+                    <button class="btn btn-edit" type="submit">Редактировать</button>
                 </form>
 
                 <form class="form" action="{{ route('category.destroy', ['category' => $category]) }}" method="POST">
@@ -38,6 +38,16 @@
     </div>
 
 @endforeach
+@can('is_admin')
+        <div class="card">
+            <a class="link" href="{{ route('category.create', ['category' => $subCategory])}}">
+
+                <img class="picture" src="{{ asset('img/add.png') }}">
+                <h2 class="title">Добавить</h2>
+
+            </a>
+        </div>
+@endcan
 </div>
 
 @endsection
