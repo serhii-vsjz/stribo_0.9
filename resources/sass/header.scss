@@ -15,8 +15,6 @@ html,body{
     max-width: 1200px; // Контейнер ограничен по ширине
     min-width: 320px; // Контейнер ограничен по ширине
     margin: 0 auto;
-    padding: 0 10px;
-    background-color: grey;
 }
 
 .header-top {
@@ -46,6 +44,7 @@ html,body{
     justify-content: space-between; // раскидать flex-елементы по сторонам
     height: 80px; // ограничить по высоте
     align-items: center; // выставить по центру
+    margin: 0 10px;
 }
 
 .header__logo {

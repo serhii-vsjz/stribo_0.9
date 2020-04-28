@@ -14,9 +14,7 @@ html, body {
 .container {
   max-width: 1200px;
   min-width: 320px;
-  margin: 0 auto;
-  padding: 0 10px;
-  background-color: grey; }
+  margin: 0 auto; }
 
 .header-top {
   position: fixed;
@@ -42,7 +40,8 @@ html, body {
   display: flex;
   justify-content: space-between;
   height: 80px;
-  align-items: center; }
+  align-items: center;
+  margin: 0 10px; }
 
 .header__logo {
   flex: 0 0 60px;
@@ -91,7 +90,8 @@ html, body {
 .contact__body {
   display: flex;
   justify-content: space-between;
-  height: 60px; }
+  height: 60px;
+  margin: 0 10px; }
   .contact__body .contact__left {
     display: flex;
     flex-direction: row;
@@ -416,7 +416,31 @@ html, body {
     font-size: 24px; }
 
   .main {
-    margin-top: 60px; }
-
-  .container {
-    padding: 0 4px; } }
+    margin-top: 60px; } }
+@media only screen and (min-width: 1200px) {
+  .main__content .card {
+    flex: 0 0 20%; } }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .main__content .card {
+    flex: 0 0 25%; } }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .main__content .card {
+    flex: 0 0 33.33%; } }
+@media only screen and (max-width: 767px) {
+  .main__content .card {
+    flex: 0 0 50%; } }
+@media only screen and (max-width: 480px) {
+  .main__content .card {
+    flex: 0 0 100%; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .main__content .card {
+    flex: 0 0 25%; } }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .main__content .card {
+    flex: 0 0 33.3333%; } }
+@media only screen and (min-width: 321px) {
+  .main__content .card {
+    flex: 0 0 25%; } }
+@media only screen and (max-width: 320px) {
+  .main__content .card {
+    flex: 0 0 50%; } }

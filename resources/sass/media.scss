@@ -1,4 +1,4 @@
-// show burger menu
+// show/hide burger menu
 @media (max-width : 768px) {
     body.lock {
         overflow: hidden;
@@ -96,7 +96,77 @@
     .main {
         margin-top: 60px;
     }
-    .container {
-        padding: 0 4px;
+}
+
+// only screen
+@media only screen and (min-width: 1200px) {
+    .main__content {
+        .card {
+            flex: 0 0 20%;
+        }
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .main__content {
+        .card {
+            flex: 0 0 25%;
+        }
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .main__content {
+        .card {
+            flex: 0 0 33.33%;
+        }
+    }
+}
+@media only screen and (max-width: 767px) {
+    .main__content {
+        .card {
+            flex: 0 0 50%;
+        }
+    }
+}
+@media only screen and (max-width: 480px) {
+    .main__content {
+        .card {
+            flex: 0 0 100%;
+        }
+    }
+}
+
+// iPads (Ландшафтный)
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .main__content {
+        .card {
+            flex: 0 0 25%;
+        }
+    }
+}
+
+// iPads (Портретный)
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    .main__content {
+        .card {
+            flex: 0 0 33.3333%;
+        }
+    }
+}
+
+// smartphone (Ландшафтный)
+@media only screen and (min-width : 321px) {
+    .main__content {
+        .card {
+            flex: 0 0 25%;
+        }
+    }
+}
+
+// Смартфоны (portrait)
+@media only screen and (max-width : 320px) {
+    .main__content {
+        .card {
+            flex: 0 0 50%;
+        }
     }
 }
