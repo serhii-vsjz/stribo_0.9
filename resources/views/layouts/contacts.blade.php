@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-<header class="contact">
+{{--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">--}}
+<div class="contact">
     <div class="container">
         <div class="contact__body">
             <div class="contact__left">
@@ -33,6 +33,6 @@
 
         </div>
     </div>
-</header>
+</div>
 
 

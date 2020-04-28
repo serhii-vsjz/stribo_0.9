@@ -1,8 +1,14 @@
-// main page
-@import "style";
+// color, border
+@import "_variables.scss";
+
+// html, body, header
+@import "header";
 
 // contact block
 @import "contact";
+
+// main page
+@import "main";
 
 // product info
 @import "product_show";
@@ -13,4 +19,8 @@
 // auth
 @import "auth";
 
+//footer
+@import "footer";
 
+// media
+@import "media";
