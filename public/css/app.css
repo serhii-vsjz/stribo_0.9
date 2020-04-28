@@ -416,36 +416,80 @@ html, body {
 
   .main {
     margin-top: 60px; } }
-@media (min-width: 321px) {
+@media only handheld and (orientation: landscape) {
   .main__content .card {
     flex: 0 0 25%;
-    background-color: green; } }
-@media (max-width: 320px) {
+    background-color: #e7e405; } }
+@media only handheld and (orientation: portrait) {
   .main__content .card {
-    flex: 0 0 50%;
-    background-color: green; } }
+    flex: 0 0 33.33%;
+    background-color: #fc4e5b; } }
+/*
+// only screen
 @media only screen and (min-width: 1200px) {
-  .main__content .card {
-    flex: 0 0 20%; } }
+    .main__content {
+        .card {
+            flex: 0 0 20%;
+            background-color: red;
+        }
+    }
+}
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .main__content .card {
-    flex: 0 0 25%; } }
+    .main__content {
+        .card {
+            flex: 0 0 25%;
+            background-color: red;
+        }
+    }
+}
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .main__content .card {
-    flex: 0 0 33.33%; } }
+    .main__content {
+        .card {
+            flex: 0 0 33.33%;
+            background-color: red;
+        }
+    }
+}
 @media only screen and (max-width: 767px) {
-  .main__content .card {
-    flex: 0 0 50%; } }
+    .main__content {
+        .card {
+            flex: 0 0 50%;
+            background-color: red;
+        }
+    }
+}
 @media only screen and (max-width: 480px) {
-  .main__content .card {
-    flex: 0 0 100%; } }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .main__content .card {
-    flex: 0 0 25%; }
-    .main__content .card:before {
-      content: 'ipads l'; } }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-  .main__content .card {
-    flex: 0 0 33.3333%; }
-    .main__content .card:before {
-      content: 'ipads p'; } }
+    .main__content {
+        .card {
+            flex: 0 0 100%;
+            background-color: red;
+        }
+    }
+}
+
+// iPads (Ландшафтный)
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+    .main__content {
+        .card {
+            flex: 0 0 25%;
+            &:before{
+                content: 'ipads l';
+            }
+            background-color: #000057;
+        }
+    }
+}
+
+// iPads (Портретный)
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+    .main__content {
+        .card {
+            flex: 0 0 33.3333%;
+            &:before{
+                content: 'ipads p';
+            }
+            background-color: #000057;
+        }
+    }
+}
+*/

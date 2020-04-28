@@ -98,32 +98,33 @@
     }
 }
 
-// smartphone (Ландшафтный)
-@media (min-width : 321px) {
+// smartphone (landscape)
+@media only handheld and (orientation: landscape) {
     .main__content {
         .card {
             flex: 0 0 25%;
-            background-color: green;
+            background-color: #e7e405;
         }
     }
 }
 
 // Смартфоны (portrait)
-@media (max-width : 320px) {
+@media only handheld and (orientation: portrait) {
     .main__content {
         .card {
-            flex: 0 0 50%;
-            background-color: green;
+            flex: 0 0 33.33%;
+            background-color: #fc4e5b;
         }
-
     }
 }
 
+/*
 // only screen
 @media only screen and (min-width: 1200px) {
     .main__content {
         .card {
             flex: 0 0 20%;
+            background-color: red;
         }
     }
 }
@@ -131,6 +132,7 @@
     .main__content {
         .card {
             flex: 0 0 25%;
+            background-color: red;
         }
     }
 }
@@ -138,6 +140,7 @@
     .main__content {
         .card {
             flex: 0 0 33.33%;
+            background-color: red;
         }
     }
 }
@@ -145,6 +148,7 @@
     .main__content {
         .card {
             flex: 0 0 50%;
+            background-color: red;
         }
     }
 }
@@ -152,6 +156,7 @@
     .main__content {
         .card {
             flex: 0 0 100%;
+            background-color: red;
         }
     }
 }
@@ -164,6 +169,7 @@
             &:before{
                 content: 'ipads l';
             }
+            background-color: #000057;
         }
     }
 }
@@ -176,8 +182,8 @@
             &:before{
                 content: 'ipads p';
             }
+            background-color: #000057;
         }
     }
 }
-
-
+*/
