@@ -98,6 +98,27 @@
     }
 }
 
+// smartphone (Ландшафтный)
+@media only screen and (min-width : 321px) {
+    .main__content {
+        .card {
+            flex: 0 0 25%;
+            background-color: green;
+        }
+    }
+}
+
+// Смартфоны (portrait)
+@media only screen and (max-width : 320px) {
+    .main__content {
+        .card {
+            flex: 0 0 50%;
+            background-color: green;
+        }
+
+    }
+}
+
 // only screen
 @media only screen and (min-width: 1200px) {
     .main__content {
@@ -140,6 +161,9 @@
     .main__content {
         .card {
             flex: 0 0 25%;
+            &:before{
+                content: 'ipads l';
+            }
         }
     }
 }
@@ -149,24 +173,11 @@
     .main__content {
         .card {
             flex: 0 0 33.3333%;
+            &:before{
+                content: 'ipads p';
+            }
         }
     }
 }
 
-// smartphone (Ландшафтный)
-@media only screen and (min-width : 321px) {
-    .main__content {
-        .card {
-            flex: 0 0 25%;
-        }
-    }
-}
 
-// Смартфоны (portrait)
-@media only screen and (max-width : 320px) {
-    .main__content {
-        .card {
-            flex: 0 0 50%;
-        }
-    }
-}
