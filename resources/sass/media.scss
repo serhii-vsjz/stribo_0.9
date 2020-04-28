@@ -98,26 +98,6 @@
     }
 }
 
-// smartphone (landscape)
-@media only handheld and (orientation: landscape) {
-    .main__content {
-        .card {
-            flex: 0 0 25%;
-            background-color: #e7e405;
-        }
-    }
-}
-
-// Смартфоны (portrait)
-@media only handheld and (orientation: portrait) {
-    .main__content {
-        .card {
-            flex: 0 0 33.33%;
-            background-color: #fc4e5b;
-        }
-    }
-}
-
 /*
 // only screen
 @media only screen and (min-width: 1200px) {
@@ -160,6 +140,7 @@
         }
     }
 }
+*/
 
 // iPads (Ландшафтный)
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
@@ -186,4 +167,26 @@
         }
     }
 }
-*/
+
+// smartphone (Портретный)
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) and (orientation : portrait) {
+    .main__content {
+        .card {
+            flex: 0 0 33.3333%;
+            background-color: #e7e405;
+        }
+    }
+}
+
+// smartphone (Ландшафтный)
+@media only screen and (min-device-width : 480px) and (max-device-width : 767px) and (orientation : landscape) {
+    .main__content {
+        .card {
+            flex: 0 0 25%;
+            background-color: #e7e405;
+        }
+    }
+}
+
+
+
