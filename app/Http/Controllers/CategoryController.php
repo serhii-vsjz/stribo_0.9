@@ -17,7 +17,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all()->where('parent_id', 0);
 
-        return view('category.index', ['categories' => $categories, 'subCategory' => '']);
+        return view('category.index', ['categories' => $categories, 'currentCategory' => '']);
     }
 
     /**
@@ -77,7 +77,7 @@ class CategoryController extends Controller
         {
             return view('category.index', [
                 'categories' => $category->children,
-                'subCategory' => $category,
+                'currentCategory' => $category,
             ]);
         } else {
             return redirect(route('product.index', [

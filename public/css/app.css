@@ -144,6 +144,9 @@ html, body {
   width: 100%;
   margin-top: 20px; }
 
+.navigate {
+  color: red; }
+
 .main__content {
   display: flex;
   justify-content: start;

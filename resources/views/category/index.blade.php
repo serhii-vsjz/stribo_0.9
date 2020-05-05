@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
+    @include('category._navigate')
+
 <div class="main__content">
+
 @foreach($categories as $category)
 
     <div class="card">
@@ -40,7 +44,7 @@
 @endforeach
 @can('is_admin')
         <div class="card">
-            <a class="link" href="{{ route('category.create', ['category' => $subCategory])}}">
+            <a class="link" href="{{ route('category.create', ['category' => $currentCategory])}}">
 
                 <img class="picture" src="{{ asset('img/add.png') }}">
                 <h2 class="title">Добавить</h2>
