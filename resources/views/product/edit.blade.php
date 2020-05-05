@@ -2,24 +2,37 @@
 
 @section('content')
 
-<h1>Редактировать продукт</h1>
+    <div class="main">
+        <div class="container">
+            <div class="category__create">
+                <h1>Редактировать продукт</h1>
 
-<form action="{{ route('product.update', ['product' => $product]) }}" enctype="multipart/form-data" method="POST">
-    @csrf
-    @method('PUT')
-    <label for="category_id">Родительская категория</label>
-    <select name="category_id">
-        @foreach($categories as $category)
-        <option value="{{ $category->id }}">{{ $category->title }}</option>
-        @endforeach
-    </select>
-    <input type="text" name="title" value="{{ $product->title }}">
-    <input type="text" name="vendor" value="{{ $product->vendor }}">
-    <br>
-    <img style="width: 200px" class="picture" src="{{ asset($product->image) }}">
-    <br>
-    <input type="file" name="image">
-    <button type="submit">Сохранить изменения</button>
-</form>
+                <form action="{{ route('product.update', ['product' => $product]) }}" enctype="multipart/form-data" method="POST">
+                    @csrf
+                    @method('PUT')
 
+                    @include('category._form')
+
+                    <div class="form-group">
+                        <label for="title">Название продукта</label>
+                        <input type="text" name="title" id="title" class="form-control" value="{{ $product->title }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="title">Код продукта</label>
+                        <input type="text" name="vendor" id="vendor" class="form-control" value="{{ $product->vendor??'' }}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Изображение</label>
+                        <input type="file" name="file" id="file" class="input-file">
+                    </div>
+
+                    <button type="submit" class="btn">Сохранить изменения</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
 @endsection

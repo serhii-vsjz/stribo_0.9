@@ -142,10 +142,24 @@ html, body {
     border-right: none; } }
 .main {
   width: 100%;
-  margin-top: 20px; }
+  margin-top: 10px; }
 
 .navigate {
-  color: red; }
+  margin: 0 10px;
+  color: #888888; }
+  .navigate .link {
+    font-size: small;
+    color: #888888;
+    text-decoration: none; }
+    .navigate .link:hover {
+      color: black; }
+    .navigate .link:active {
+      color: #000041; }
+  .navigate .line {
+    border: none;
+    height: 1px;
+    margin-bottom: 5px;
+    background-color: #C0C0C0; }
 
 .main__content {
   display: flex;
@@ -167,7 +181,7 @@ html, body {
       top: 0;
       text-align: center;
       font-size: 1.2em;
-      color: #5d5d5d; }
+      color: #888888; }
     .main__content .card .picture {
       position: relative;
       width: 100%;

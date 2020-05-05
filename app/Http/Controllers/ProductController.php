@@ -18,7 +18,8 @@ class ProductController extends Controller
     public function index(Category $category = NULL)
     {
         return view('product.index', [
-            'products' => $category->products,
+            'products' => $category->products??'',
+            'currentCategory' => $category??'',
         ]);
     }
 
@@ -79,8 +80,12 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $categories = Category::all();
-        return view('product.edit', compact('product', 'categories'));
+        return view('product.edit', [
+            'product' => $product,
+            'category' => $product->category,
+            'categories' => Category::with('children')->where('parent_id', 0)->get(),
+            'delimiter' => ' ',
+        ]);
     }
 
     /**
@@ -94,15 +99,15 @@ class ProductController extends Controller
     {
         $product->title = $request->title;
 
-        if($request->file('image'))
+        if($request->file('file'))
         {
-            $image = $request->file('image')->store('images');
+            $image = $request->file('file')->store('images');
             $product->image = $image;
         }
 
-        if($request->category_id)
+        if($request->parent_id)
         {
-            $product->category_id = $request->category_id;
+            $product->category_id = $request->parent_id;
         }
         else
         {
@@ -113,19 +118,23 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect(route('product.index'));
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param \App\Product $product
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Product $product)
     {
-        $product->delete();
+        try {
+            $product->delete();
+        } catch (\Exception $e) {
+        }
 
-        return redirect(route('product.index'));
+        return redirect()-back();
     }
 }

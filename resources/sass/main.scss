@@ -1,10 +1,29 @@
 $border_red_line: 1px solid grey;
 .main {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 .navigate {
-    color: red;
+    margin: 0 10px;
+    color: $grey;
+    .link {
+        font-size: small;
+        color: $grey;
+        text-decoration: none;
+        &:hover {
+            color: black;
+        }
+        &:active {
+            color: $purple;
+        }
+    }
+    .line {
+        border: none;
+        height: 1px;
+        margin-bottom: 5px;
+        background-color: #C0C0C0;
+
+    }
 }
 
 .main__content {

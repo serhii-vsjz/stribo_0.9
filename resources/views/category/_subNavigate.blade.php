@@ -4,7 +4,7 @@
         @include('category._subNavigate', ['subCurrentCategory' => $subCurrentCategory->parent])
     @endisset
 
-    ->
-    <a href="{{ route('category.show', ['category' => $subCurrentCategory]) }}">{{ $subCurrentCategory->title }}</a>
+    >
+    <a class="link" href="{{ route('category.show', ['category' => $subCurrentCategory]) }}">{{ $subCurrentCategory->title }}</a>
 @endisset
 

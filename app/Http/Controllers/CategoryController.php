@@ -72,7 +72,6 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-
         if ($category->children->isNotEmpty())
         {
             return view('category.index', [
