@@ -12,7 +12,7 @@
         <a class="link" href="{{ route('category.show', ['category' => $category]) }}">
             <h2 class="title">{{ $category->title }}</h2>
 
-                <img class="picture" src="{{ asset($category->image) }}" alt="Блоки подготовки">
+                <img class="picture" src="{{ asset($category->image) }}">
         </a>
         @can('is_admin')
         <div class="form_action">

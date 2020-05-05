@@ -4,35 +4,61 @@
 
     @include('category._navigate')
 
-<div class="main__content">
+<div class="main__products">
+    <img class="image" src="{{ asset($currentCategory->image) }}">
+    <h2>{{ $currentCategory->title }}</h2>
+    <h3>{{ $currentCategory->vender }}</h3>
+        <table class="table">
+            <tr>
+                <td>Наименование</td>
+                <td>Артикул</td>
+                <td>Цена</td>
+                <td>Кол-во</td>
+                <td>Добавить</td>
+            </tr>
 
-    @foreach($products as $product)
-    <div class="card">
-        <h2 class="title">{{ $product->title }}</h2>
-        <h3 class="title">{{ $product->vendor }}</h3>
-        <a href="{{ route('product.show', ['product' => $product]) }}">
-            <img class="picture" src="{{ asset($product->image) }}">
-        </a>
-        <div class="form_action">
-            <form class="form" action="{{ route('product.create', ['category' => $product]) }}" method="GET">
-                @csrf
+                @foreach($products as $product)
 
-                <button class="btn btn-edit" type="submit">Добавить</button>
-            </form>
+                    <tr>
+                        <td>{{ $product->title }}</td>
+                        <td>{{ $product->vendor }}</td>
+                        <td>22.50</td>
+                        <td>
+                            <form class="form">
+                                <input type="text" name="count">
+                            </form>
+                        </td>
+                        <td>
+                            <a href="{{ route('product.show', ['product' => $product]) }}">
+                                <img class="picture" src="{{ asset('img/add.png') }}">
+                            </a>
+                        </td>
+                    </tr>
 
-            <form class="form" action="{{ route('product.edit', ['product' => $product]) }}" method="GET">
-                @csrf
-                <button class="btn btn-edit" type="submit">Изменить</button>
-            </form>
+                @endforeach
+            @can('is_admin')
+                <div class="form_action">
+                    <form class="form" action="{{ route('product.create', ['category' => $product]) }}" method="GET">
+                        @csrf
 
-            <form class="form" action="{{ route('product.destroy', ['product' => $product]) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button  class="btn btn-delete" type="submit">Удалить</button>
-            </form>
-        </div>
-    </div>
-    @endforeach
+                        <button class="btn btn-edit" type="submit">Добавить</button>
+                    </form>
+
+                    <form class="form" action="{{ route('product.edit', ['product' => $product]) }}" method="GET">
+                        @csrf
+                        <button class="btn btn-edit" type="submit">Изменить</button>
+                    </form>
+
+                    <form class="form" action="{{ route('product.destroy', ['product' => $product]) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button  class="btn btn-delete" type="submit">Удалить</button>
+                    </form>
+                </div>
+            @endcan
+
+        </table>
+
     @can('is_admin')
         <div class="card">
             <a class="link" href="{{ route('product.create', ['category' => $currentCategory])}}">
