@@ -216,7 +216,7 @@ html, body {
 .main__products .table {
   width: 100%;
   table-layout: fixed;
-  font-size: 1em; }
+  font-size: 1.2em; }
   .main__products .table th {
     font-weight: normal;
     color: #039;
