@@ -8,7 +8,6 @@
             <h1>Создать новый продукт </h1>
             <p>
 
-                {{--{{ \Illuminate\Support\Facades\Route::currentRouteName() }}--}}
 
             </p>
 
@@ -29,6 +28,11 @@
                 <div class="form-group">
                     <label for="file">Изображение</label>
                     <input type="file" name="file" id="file" class="input-file">
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Цена</label>
+                    <input type="text"  name="price" id="price" class="form-control">
                 </div>
 
                 <button type="submit" class="btn">Создать</button>

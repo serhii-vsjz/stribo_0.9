@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\PriceTable;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -57,6 +58,16 @@ class ProductController extends Controller
         $product->vendor = $request->vendor;
 
         $product->save();
+
+        if($request->price)
+        {
+            $price = new PriceTable();
+            $price->product()->associate($product);
+            $price->price = $request->price;
+            $price->save();
+            $product->price_table_id=$price->id;
+            $product->save();
+        }
 
         return redirect(route('category.index'));
     }

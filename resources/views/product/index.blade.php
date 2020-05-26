@@ -22,7 +22,7 @@
                     <tr>
                         <td>{{ $product->title }}</td>
                         <td>{{ $product->vendor }}</td>
-                        <td>22.50</td>
+                        <td>{{$product->price->price??'-'}}</td>
                         <td>
                             <form class="form">
                                 <input type="text" name="count">
@@ -40,7 +40,7 @@
                 <tr>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->vendor }}</td>
-                    <td>22.50</td>
+                    <td>{{$product->price->price??'xxx'}}</td>
                     <td>
                         <form class="form">
                             <input type="text" name="count">
