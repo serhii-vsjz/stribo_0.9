@@ -14,15 +14,23 @@
                 <td>Цена</td>
             </tr>
 
-                @foreach($products as $product)
+            @foreach($products as $product)
+            <tr>
+                <td>{{ $product->vendor }}</td>
+                <td>{{$product->price->price??'-'}}</td>
+            </tr>
+            @endforeach
 
-                    <tr>
-                        <td>{{ $product->vendor }}</td>
-                        <td>{{$product->price->price??'-'}}</td>
-                    </tr>
+            @can('is_admin')
+            <tr>
 
-                @endforeach
+                <td colspan="2">+
+                    <a href="{{ route('product.create', ['category' => $currentCategory]) }}">
+                    </a>
+                </td>
 
+            </tr>
+            @endcan
         </table>
 
 </div>
