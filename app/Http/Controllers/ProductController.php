@@ -82,9 +82,7 @@ class ProductController extends Controller
 
         }
 
-
-
-        return redirect(route('category.index'));
+        return redirect(session('links')[2]); // Will redirect 2 links back
     }
 
     /**

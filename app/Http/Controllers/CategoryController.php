@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
 
 class CategoryController extends Controller
 {
@@ -33,7 +32,7 @@ class CategoryController extends Controller
      * @param Category|null $category
      * @return \Illuminate\Http\Response
      */
-    public function create(Category $category = NULL)
+    public function create(Category $category = NULL, Request $request)
     {
         return view('category.create', [
             'category' => $category,
@@ -50,7 +49,6 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-
         $category = new Category();
         $category->title = $request->title;
 
@@ -66,9 +64,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        $urls = array();
-
-        return redirect()->back();
+        return redirect(session('links')[2]); // Will redirect 2 links back
     }
 
     /**
