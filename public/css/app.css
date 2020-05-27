@@ -165,6 +165,8 @@ html, body {
   display: flex;
   justify-content: start;
   flex-wrap: wrap; }
+  .main__content .card.disabled {
+    background-color: rgba(205, 205, 205, 0.62); }
   .main__content .card {
     overflow: hidden;
     padding: 5px;
@@ -175,6 +177,13 @@ html, body {
     justify-content: space-between;
     align-items: center;
     border: 1px solid #C0C0C0; }
+    .main__content .card .link.disabled {
+      pointer-events: none;
+      /* делаем ссылку некликабельной */
+      cursor: default;
+      /* устанавливаем курсор в виде стрелки */ }
+      .main__content .card .link.disabled .picture {
+        opacity: 0.5; }
     .main__content .card:hover {
       background-color: rgba(225, 224, 255, 0.5); }
     .main__content .card .link {
@@ -296,31 +305,34 @@ html, body {
         .main__products .product__table .table .add a {
           text-decoration: none; }
 
-.category__create h1 {
-  color: red; }
-.category__create .form-group {
+.category__create {
   display: flex;
-  flex-direction: column;
-  position: relative;
-  padding-top: 1.5rem; }
-.category__create .form-control {
-  border: 1px solid #C0C0C0;
-  border-radius: 5px;
-  width: 300px;
-  height: 30px;
-  padding: 5px; }
-.category__create .input-file {
-  border: 1px solid #C0C0C0;
-  border-radius: 5px;
-  width: 300px;
-  height: 30px;
-  padding: 5px; }
-.category__create .btn {
-  margin-top: 1.5rem;
-  border: 1px solid #C0C0C0;
-  border-radius: 5px;
-  width: 300px;
-  height: 30px; }
+  justify-content: center; }
+  .category__create h1 {
+    margin-top: 20px;
+    color: #5a5a5a; }
+  .category__create .form-group {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1.5rem; }
+  .category__create .form-control {
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+    padding: 5px; }
+  .category__create .input-file {
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    width: 300px;
+    height: 30px;
+    padding: 5px; }
+  .category__create .btn {
+    margin-top: 1.5rem;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    width: 300px;
+    height: 30px; }
 
 .card {
   display: flex;

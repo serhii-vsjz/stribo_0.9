@@ -5,13 +5,9 @@
 <div class="main">
     <div class="container">
         <div class="category__create">
-            <h1>Создать новый продукт </h1>
-            <p>
-
-
-            </p>
 
             <form action="{{ route('product.store') }}" enctype="multipart/form-data" method="POST">
+                <h1>Добавить новый продукт </h1>
                 @csrf
 
                 <div class="form-group">
@@ -31,7 +27,9 @@
                     <input type="text"  name="price" id="price" class="form-control">
                 </div>
 
-                <button type="submit" class="btn">Создать</button>
+                <div class="form-group">
+                    <button type="submit" class="btn">Добавить</button>
+                </div>
             </form>
 
         </div>

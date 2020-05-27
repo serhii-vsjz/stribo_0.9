@@ -8,8 +8,8 @@
 
 @foreach($categories as $category)
 
-    <div class="card">
-        <a class="link" href="{{ route('category.show', ['category' => $category]) }}">
+    <div class="card {{ $category->active?'':'disabled' }}">
+        <a class="link {{ $category->active?'':'disabled' }}" href="{{ route('category.show', ['category' => $category]) }}" >
             <h2 class="title">{{ $category->title }}</h2>
 
                 <img class="picture" src="{{ asset($category->image) }}">
@@ -20,6 +20,12 @@
             <form class="form" action="{{ route('category.create', ['category' => $category]) }}" method="GET">
                 @csrf
                 <button class="btn btn-edit" type="submit">Категорию</button>
+            </form>
+            <form class="form" action="{{ route('category.active', ['category' => $category]) }}" method="GET">
+                @csrf
+                <button class="btn btn-edit" type="submit">
+                    {{ $category->active?'Скрыть':'Отобразить' }}
+                </button>
             </form>
             <form class="form" action="{{ route('product.create', ['category' => $category]) }}" method="GET">
                 @csrf

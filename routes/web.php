@@ -38,6 +38,7 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('category', 'CategoryController@index')->name('category.index');
+Route::get('category/active/{category}', 'CategoryController@active')->name('category.active');
 Route::get('category/create/{category?}', 'CategoryController@create')->name('category.create');
 Route::post('category', 'CategoryController@store')->name('category.store');
 Route::get('category/{category}', 'CategoryController@show')->name('category.show');

@@ -5,9 +5,10 @@
 <div class="main">
     <div class="container">
         <div class="category__create">
-            <h1>Создать новую категорию</h1>
+
 
             <form action="{{ route('category.store') }}" enctype="multipart/form-data" method="POST">
+                <h1>Добавить новую категорию</h1>
                 @csrf
 
                 <div class="form-group">
@@ -22,7 +23,9 @@
                     <input type="file" name="file" id="file" class="input-file">
                 </div>
 
-                <button type="submit" class="btn">Создать</button>
+                <div class="form-group">
+                    <button type="submit" class="btn">Создать</button>
+                </div>
             </form>
 
         </div>

@@ -31,7 +31,22 @@ $border_red_line: 1px solid grey;
     justify-content: start;
     flex-wrap: wrap;
 
+    .card.disabled
+    {
+        background-color: rgba(205, 205, 205, 0.62);
+    }
     .card {
+        .link.disabled
+        {
+            pointer-events: none; /* делаем ссылку некликабельной */
+            cursor: default;  /* устанавливаем курсор в виде стрелки */
+
+            .picture
+            {
+                opacity: 0.5;
+            }
+        }
+
         &:hover {
 
             background-color: rgba(225, 224, 255, 0.5);
@@ -105,6 +120,7 @@ $border_red_line: 1px solid grey;
         }
 
     }
+
 }
 
 .main__products {

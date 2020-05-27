@@ -20,6 +20,13 @@ class CategoryController extends Controller
         return view('category.index', ['categories' => $categories, 'currentCategory' => '']);
     }
 
+    public function active(Category $category)
+    {
+        $category->active?$category->active=false:$category->active=true;
+        $category->save();
+        return back();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
