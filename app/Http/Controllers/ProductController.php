@@ -48,10 +48,24 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = new Product();
-        $product->title = $request->title;
+/*
+        if ($request->file('file'))
+        {
+            $image = $request->file('file')->store('images');
+            $category->image = $image;
+        } else {
+            $category->image = 'images/empty.png';
+        }
+*/
+        if ($request->file('file'))
+        {
+            $image = $request->file('file')->store('images');
+            $product->image = $image;
+        } else {
+            $product->image = 'images/empty.png';
+        }
 
-        $image = $request->file('file')->store('images');
-        $product->image = $image;
+
 
         $product->category_id = $request->parent_id;
 
