@@ -220,90 +220,65 @@ html, body {
           .main__content .card .form_action .form .btn:hover {
             box-shadow: inset 1px 0px 1px 1px rgba(18, 53, 72, 0.5), inset -1px -1px 1px 1px rgba(18, 53, 72, 0.5); }
 
-.main__products .image {
-  width: 150px; }
-.main__products .table {
-  width: 100%;
-  table-layout: fixed;
-  font-size: 1.2em; }
-  .main__products .table th {
-    font-weight: normal;
-    color: #039;
-    padding: 5px 7px; }
-  .main__products .table td {
-    color: #669;
-    border-top: 1px solid #e8edff;
-    padding: 5px 7px;
-    position: relative;
-    text-align: center; }
-  .main__products .table tr:nth-child(2n) {
-    background: #e8edff; }
-  .main__products .table tr:hover {
-    background-color: #bdccff; }
-  .main__products .table td a {
-    position: absolute;
-    /* Абсолютное позиционирование */
-    left: 0;
-    right: 0;
-    /* По ширине ячейки */
-    top: 0;
-    bottom: 0;
-    /* По высоте ячейки */
-    color: #fff;
-    /* Цвет ссылок */
-    padding: 5px;
-    /* Поля вокруг текста */
-    overflow: auto; }
-  .main__products .table .form {
-    margin: auto;
-    width: auto;
-    overflow: hidden; }
-    .main__products .table .form input {
-      text-align: -webkit-center; }
-  .main__products .table .picture {
-    width: 30px; }
-
 .main__products {
-  display: flex;
-  justify-content: start;
-  flex-wrap: wrap;
-  width: 100%; }
-  .main__products .product__image {
-    flex: 0 0 15%; }
-    .main__products .product__image .image {
-      width: 100%; }
-  .main__products .product__info .title {
-    color: #25282a; }
-  .main__products .product__info .vendor {
-    color: #53585a; }
-  .main__products .product__info .link {
-    display: block;
-    text-decoration: none;
-    color: #53585a; }
-  .main__products .product__table {
-    flex: 100%; }
-    .main__products .product__table .table {
-      min-width: 80%; }
-      .main__products .product__table .table th {
-        font-weight: normal;
-        color: #039;
-        padding: 10px 15px; }
-      .main__products .product__table .table .col1 {
-        width: 15%; }
-      .main__products .product__table .table td {
-        color: #669;
-        border-top: 1px solid #e8edff;
-        padding: 10px 5px;
-        text-align: center;
-        width: 10%; }
-        .main__products .product__table .table td form .input {
-          width: 10%; }
-      .main__products .product__table .table tr:nth-child(2n) {
-        background: #e8edff; }
-      .main__products .product__table .table .add {
-        text-align: center; }
-        .main__products .product__table .table .add a {
-          text-decoration: none; }
+  padding: 10px; }
+  .main__products h3 {
+    color: #3d3d3d; }
+  .main__products h4 {
+    color: #626262; }
+  .main__products .picture {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #ffc; }
+    .main__products .picture .picture_vendor {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: #fcc; }
+      .main__products .picture .picture_vendor .image {
+        width: 200px; }
+  .main__products .table {
+    width: 100%;
+    table-layout: fixed;
+    font-size: 1.2em; }
+    .main__products .table th {
+      font-weight: normal;
+      color: #039;
+      padding: 5px 7px; }
+    .main__products .table td {
+      color: #669;
+      border-top: 1px solid #e8edff;
+      padding: 5px 7px;
+      position: relative;
+      text-align: center; }
+    .main__products .table tr:nth-child(2n) {
+      background: #e8edff; }
+    .main__products .table tr:hover {
+      background-color: #bdccff; }
+    .main__products .table td a {
+      position: absolute;
+      /* Абсолютное позиционирование */
+      left: 0;
+      right: 0;
+      /* По ширине ячейки */
+      top: 0;
+      bottom: 0;
+      /* По высоте ячейки */
+      color: #fff;
+      /* Цвет ссылок */
+      padding: 5px;
+      /* Поля вокруг текста */
+      overflow: auto; }
+    .main__products .table .form {
+      margin: auto;
+      width: auto;
+      overflow: hidden; }
+      .main__products .table .form input {
+        text-align: -webkit-center; }
+    .main__products .table .picture {
+      width: 30px; }
 
 .category__create {
   display: flex;

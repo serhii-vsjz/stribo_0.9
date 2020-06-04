@@ -5,7 +5,16 @@
     @include('category._navigate')
 
 <div class="main__products">
-    <img class="image" src="{{ asset($currentCategory->image) }}" alt="">
+    <h3>Серия SQ - Стандартный цилиндр ISO6431</h3>
+    <h4>Standart square</h4>
+    <br>
+
+    <div class="picture">
+        <div class="picture_vendor">
+           {{-- <img class="image" src="{{ asset($currentCategory->image) }}" alt="">--}}
+        </div>
+    </div>
+
     <h2>{{ $currentCategory->title }}</h2>
     <h3>{{ $currentCategory->vender }}</h3>
         <table class="table">
