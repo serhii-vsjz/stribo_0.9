@@ -27,6 +27,11 @@
             <tr>
                 <td>{{ $product->vendor }}</td>
                 <td>{{$product->price->price??'-'}}</td>
+
+                <td>@foreach( $product->productAttributes  as $productAttribute)
+                {{ $productAttribute->attribute->name }} - {{ $productAttribute->getValue() }}
+                    @endforeach
+                </td>
             </tr>
             @endforeach
 

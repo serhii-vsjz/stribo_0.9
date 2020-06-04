@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
@@ -13,13 +14,13 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function feature(): HasOne
+    public function prices(): HasMany
     {
-        return $this->hasOne(FeatureTable::class);
+        return $this->hasMany(PriceTable::class);
     }
 
-    public function price(): HasOne
+    public function productAttributes()
     {
-        return $this->hasOne(PriceTable::class);
+        return $this->hasMany(ProductAttribute::class);
     }
 }
