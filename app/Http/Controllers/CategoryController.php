@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -82,9 +82,10 @@ class CategoryController extends Controller
                 'currentCategory' => $category,
             ]);
         } else {
-            return redirect(route('product.index', [
-                'category' => $category
-            ]));
+            return view('product.index', [
+                'products' => $category->products??'',
+                'currentCategory' => $category??'',
+            ]);
         }
     }
 

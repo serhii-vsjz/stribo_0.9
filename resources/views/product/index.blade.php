@@ -11,13 +11,35 @@
 
     <div class="picture">
         <div class="picture_vendor">
-           {{-- <img class="image" src="{{ asset($currentCategory->image) }}" alt="">--}}
+            <img class="image" src="{{ asset($currentCategory->image) }}" alt="">
         </div>
     </div>
 
     <h2>{{ $currentCategory->title }}</h2>
     <h3>{{ $currentCategory->vender }}</h3>
-        <table class="table">
+
+    {{--From this point, the display of all product characteristics tables begins--}}
+    <table class="table">
+        <tr>
+            <td>Артикул</td>
+                @foreach( $products[0]->productAttributes  as $productAttribute)
+                    <td>{{ $productAttribute->attribute->name }}</td>
+                @endforeach
+        </tr>
+
+        @foreach($products as $product)
+            <tr>
+                <td>{{ $product->vendor }}</td>
+                @foreach( $product->productAttributes  as $productAttribute)
+                <td>{{ $productAttribute->getValue() }}</td>
+                @endforeach
+            </tr>
+        @endforeach
+
+
+    </table>
+
+        {{--<table class="table">
             <tr>
                 <td>Артикул</td>
                 <td>Цена</td>
@@ -45,7 +67,7 @@
 
             </tr>
             @endcan
-        </table>
+        </table>--}}
 
 </div>
 
