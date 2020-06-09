@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\PriceTable;
 use App\Models\Product;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    private $productRepository;
+
+    public function __construct(ProductRepositoryInterface $productRepository)
+    {
+        $this->productRepository = $productRepository;
+    }
 
     /**
      * Display a listing of the resource.
@@ -18,8 +25,10 @@ class ProductController extends Controller
      */
     public function index(Category $category = NULL)
     {
+        $products = $this->productRepository->getByCategory($category);
+
         return view('product.index', [
-            'products' => $category->products??'',
+            'products' => $products??'',
             'currentCategory' => $category??'',
         ]);
     }

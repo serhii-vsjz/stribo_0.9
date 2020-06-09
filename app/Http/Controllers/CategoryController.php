@@ -82,10 +82,9 @@ class CategoryController extends Controller
                 'currentCategory' => $category,
             ]);
         } else {
-            return view('product.index', [
-                'products' => $category->products??'',
-                'currentCategory' => $category??'',
-            ]);
+            return redirect(route('product.index', [
+                'category' => $category
+            ]));
         }
     }
 

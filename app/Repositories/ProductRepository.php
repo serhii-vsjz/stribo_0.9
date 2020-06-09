@@ -9,8 +9,6 @@ use App\Repositories\Interfaces\ProductRepositoryInterface;
 
 class ProductRepository implements ProductRepositoryInterface
 {
-
-
     public function all()
     {
         return Product::all();
@@ -18,8 +16,6 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function getByCategory(Category $category)
     {
-        $products = Product::where('category_id', $category->id)->get();
-        return Product::all('category_id', $category->id)->get();
-
+        return Product::where('category_id', $category->id)->get();
     }
 }

@@ -1,0 +1,41 @@
+.main__products {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  width: 100%; }
+  .main__products .product__image {
+    flex: 0 0 15%; }
+    .main__products .product__image .image {
+      width: 150px; }
+  .main__products .product__info .title {
+    color: #25282a; }
+  .main__products .product__info .vendor {
+    color: #53585a; }
+  .main__products .product__info .link {
+    display: block;
+    text-decoration: none;
+    color: #53585a; }
+  .main__products .product__table {
+    flex: 100%; }
+    .main__products .product__table .table {
+      min-width: 80%; }
+      .main__products .product__table .table th {
+        font-weight: normal;
+        color: #039;
+        padding: 10px 15px; }
+      .main__products .product__table .table .col1 {
+        width: 15%; }
+      .main__products .product__table .table td {
+        color: #669;
+        border-top: 1px solid #e8edff;
+        padding: 10px 5px;
+        text-align: center;
+        width: 10%; }
+        .main__products .product__table .table td form .input {
+          width: 10%; }
+      .main__products .product__table .table tr:nth-child(2n) {
+        background: #e8edff; }
+      .main__products .product__table .table .add {
+        text-align: center; }
+        .main__products .product__table .table .add a {
+          text-decoration: none; }
