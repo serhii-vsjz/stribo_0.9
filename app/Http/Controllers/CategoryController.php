@@ -82,9 +82,12 @@ class CategoryController extends Controller
                 'currentCategory' => $category,
             ]);
         } else {
-            return redirect(route('product.index', [
-                'category' => $category
-            ]));
+
+            return view('product.index', [
+                'products' => $category->products??'',
+                'attributes' => $category->getAttributeNames()??'',
+                'currentCategory' => $category??'',
+            ]);
         }
     }
 
@@ -133,7 +136,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect(route('category.index'));
+        return redirect(session('links')[2]); // Will redirect 2 links back
     }
 
     /**

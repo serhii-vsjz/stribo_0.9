@@ -150,7 +150,7 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->back();
+        return redirect(session('links')[2]); // Will redirect 2 links back
     }
 
     /**

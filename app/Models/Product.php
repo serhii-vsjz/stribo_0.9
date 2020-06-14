@@ -47,8 +47,22 @@ class Product extends Model
         return $this->hasMany(PriceTable::class);
     }
 
-    public function productAttributes()
+    public function productAttributes(): HasMany
     {
         return $this->hasMany(ProductAttribute::class);
+    }
+
+    public function getAttributeValueByName($name)
+    {
+        $id = Attribute::where('name', $name)->first()->id;
+
+        if(!$productAttribute = $this->productAttributes->where('attribute_id', $id)->first())
+        {
+            return false;
+        }
+
+        $value = $productAttribute->getValue();
+
+        return $value;
     }
 }

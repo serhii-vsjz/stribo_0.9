@@ -46,6 +46,16 @@ class ProductAttribute extends Model
         return $this->belongsTo(Attribute::class);
     }
 
+    public function getName()
+    {
+        return $this->attribute->name;
+    }
+
+    public function getProductName()
+    {
+        return $this->product->vendor;
+    }
+
     public function getValue()
     {
         switch ($this->attribute->type) {
@@ -56,5 +66,11 @@ class ProductAttribute extends Model
             case 'string':
                 return $this->string_value;
         }
+    }
+
+    public function getValueByName($name)
+    {
+        $attributeId = Attribute::where('name', $name)->first()->id;
+        dd($attributeId);
     }
 }

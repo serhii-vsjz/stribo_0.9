@@ -2,10 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Product;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 /**
  * App\Models\Category
@@ -51,5 +55,67 @@ class Category extends Model
     public function parent(): BelongsTo
     {
         return $this->belongsTo(Category::class, 'parent_id');
+    }
+
+    /*implemented using an array*/
+    /**
+     * @return array
+     */
+    public function getTableProductsWithAttributes(): array
+    {
+        $products = $this->products;
+
+        // get all existing attributes in products of this category
+        $i = 0;
+        $attributes[$i][] = 'Vendor';
+        foreach ($products as $product) {
+            foreach ($product->productAttributes as $productAttribute) {
+                if (!(in_array($productAttribute->getName(), $attributes[$i])))
+                {
+                    $attributes[$i][] = $productAttribute->getName();
+                }
+            }
+        }
+
+        $i = 1;
+        foreach ($products as $product) {
+            $j = 0;
+            $attributes[$i][$j] = $product->vendor;
+
+            foreach ($product->productAttributes as $productAttribute) {
+                if ($j = array_search($productAttribute->getName(), $attributes[0]))
+                {
+                    $attributes[$i][$j] = $productAttribute->getValue();
+                } else {
+                    $attributes[$i][$j++] = '-';
+                }
+            }
+            $i++;
+        }
+
+        return $attributes;
+    }
+
+    /**
+     *
+     * General product attributes with id for this category
+     *
+     */
+    public function getAttributeNames(): Collection
+    {
+        $products = $this->products;
+
+        $attributes = collect();
+        foreach ($products as $product)
+        {
+            foreach ($product->productAttributes as $productAttribute)
+            {
+                if (!$attributes->contains($productAttribute->getName()))
+                {
+                    $attributes->add($productAttribute->getName());
+                }
+            }
+        }
+        return $attributes;
     }
 }
