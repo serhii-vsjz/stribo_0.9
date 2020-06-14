@@ -28,7 +28,7 @@ $border_red_line: 1px solid grey;
 
 .main__content {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-wrap: wrap;
 
     .card.disabled

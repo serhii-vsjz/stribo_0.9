@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::get('/admin', function () {
-    return view('admin');
+    return view('admin.admin');
 });
+
+Route::post('/admin/import', 'ProductController@import')->name('admin.import');
 
 Route::get('/user', function () {
     return view('user');

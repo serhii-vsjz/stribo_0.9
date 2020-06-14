@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ProductsImport;
 use App\Models\{Category, PriceTable, Product};
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProductController extends Controller
 {
@@ -168,5 +170,11 @@ class ProductController extends Controller
         }
 
         return redirect()-back();
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new ProductsImport(), $request->file('excel'));
+        return redirect('/')->with('success', 'All good!');
     }
 }

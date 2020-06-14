@@ -2,26 +2,27 @@
 
 @section('content')
     <div class="container">
-        <br><br>
-        <br><br>
-        <br><br>
+        <form action="{{ route('admin.import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" id="excel" name="excel">
+            <button type="submit">Загрузить</button>
+        </form>
+
         <hr>
         <a href="{{ route('category.index') }}">
             Показать все категории
         </a>
 
-        <hr>
+
         <a href="{{ route('category.create') }}">
             Создать категорию
         </a>
 
-        <hr>
+
         <a href="{{ route('product.index') }}">
             Показать все продукты
         </a>
 
-        <hr>
-        {{--<a href="{{ route('product.create') }}">--}}
         <a href="">
             Создать продукт
         </a>

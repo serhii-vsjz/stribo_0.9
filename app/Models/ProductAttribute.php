@@ -35,6 +35,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class ProductAttribute extends Model
 {
+    protected $fillable = [
+        'product_id',
+        'attribute_id',
+        'int_value',
+    ];
 
     public function product(): BelongsTo
     {

@@ -38,6 +38,12 @@ use Illuminate\Support\Collection;
  */
 class Product extends Model
 {
+    protected $fillable = [
+        'category_id',
+        'vendor',
+        'image',
+    ];
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
