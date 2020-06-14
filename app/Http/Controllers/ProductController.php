@@ -101,6 +101,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        $product->getExistingAttributes();
         return view('product.show', compact('product'));
     }
 

@@ -23,6 +23,11 @@
                     <input type="file" name="file" id="file" class="input-file">
                 </div>
 
+                <div class="form-group">
+                    <label for="drawing">Чертеж</label>
+                    <input type="file" name="drawing" id="drawing" class="input-file">
+                </div>
+
                 <button type="submit" class="btn">Сохранить изменения</button>
 
             </form>

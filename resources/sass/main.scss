@@ -133,22 +133,48 @@ $border_red_line: 1px solid grey;
     }
 
     .picture {
-        width: 200px;
-        height: 200px;
-        text-align: center;
-        vertical-align: middle;
-        background-color: #ffc;
+        display: inline-block;
+        padding: 50px 0 50px 0;
+        width: 260px;
+
         .picture_vendor {
-            display: inline-block;
-            width: 100px;
+            .h3 {
+                color: white;
+                padding: 0.25em 0.1em;
+                font-family: "Poplar Kozel";
+                font-size: 4em;
+                overflow: visible;
+
+            }
+
+            width: 100%;
             height: 100px;
-            background-color: #fcc;
+            background: linear-gradient(to left, #ffffff, #6794c3);
+
             .image {
+                margin-top: -10em;
+                margin-left: 4em;
                 width: 200px;
 
             }
         }
     }
+
+    .drawing {
+        display: inline-block;
+        height: 200px;
+        margin-left: auto;
+        margin-right: 0em;
+
+        .picture_drawing {
+            width: 100px;
+            height: 100px;
+            .drawing {
+                width: 200px;
+            }
+        }
+    }
+
 
     .table {
         width: 100%;

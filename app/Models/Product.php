@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 /**
  * App\Models\Product
@@ -54,7 +55,9 @@ class Product extends Model
 
     public function getAttributeValueByName($name)
     {
-        $id = Attribute::where('name', $name)->first()->id;
+        $id = Attribute::where('name', $name)->first()->get()->id;
+
+        dd($id);
 
         if(!$productAttribute = $this->productAttributes->where('attribute_id', $id)->first())
         {
@@ -65,4 +68,52 @@ class Product extends Model
 
         return $value;
     }
+
+    public function getAttributeValueById($id)
+    {
+        if ($productAttribute = $this->productAttributes->where('attribute_id', $id)->first())
+        {
+            return $productAttribute->getValue();
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Get all attributes existing in this product.
+     *
+     * @return Collection
+     */
+    public function getExistingAttributesId(): Collection
+    {
+        $attributesId = ProductAttribute::where('product_id', $this->id)->pluck('attribute_id');
+        return $attributesId;
+    }
+
+    public function getExistingAttributes(): Collection
+    {
+        $attributesId = ProductAttribute::where('product_id', $this->id)->pluck('attribute_id');
+        $attributes = Attribute::whereIn('id', $attributesId)->get();
+
+        return $attributes;
+    }
+
+    public function getAttributeNames(): Collection
+    {
+        $products = $this->products;
+
+        $attributes = collect();
+        foreach ($products as $product)
+        {
+            foreach ($product->productAttributes as $productAttribute)
+            {
+                if (!$attributes->contains($productAttribute->getName()))
+                {
+                    $attributes->add($productAttribute->getName());
+                }
+            }
+        }
+        return $attributes;
+    }
+
 }

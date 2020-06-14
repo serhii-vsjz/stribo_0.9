@@ -85,7 +85,7 @@ class CategoryController extends Controller
 
             return view('product.index', [
                 'products' => $category->products??'',
-                'attributes' => $category->getAttributeNames()??'',
+                'attributesByGroups' => $category->getExistingAttributesByGroups()??'',
                 'currentCategory' => $category??'',
             ]);
         }
@@ -121,6 +121,12 @@ class CategoryController extends Controller
         {
             $image = $request->file('file')->store('images');
             $category->image = $image;
+        }
+
+        if($request->file('drawing'))
+        {
+            $drawing = $request->file('drawing')->store('images');
+            $category->drawing = $drawing;
         }
 
         if($request->parent_id)

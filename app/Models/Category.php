@@ -98,7 +98,7 @@ class Category extends Model
 
     /**
      *
-     * General product attributes with id for this category
+     * General product attributes for this category
      *
      */
     public function getAttributeNames(): Collection
@@ -117,5 +117,25 @@ class Category extends Model
             }
         }
         return $attributes;
+    }
+
+    public function getExistingAttributes(): Collection
+    {
+        $products = $this->products;
+        $attributes = collect();
+        foreach ($products as $product)
+        {
+            $attributes = $attributes->concat($product->getExistingAttributes())->unique();
+        }
+
+        return $attributes;
+    }
+
+    public function getExistingAttributesByGroups()
+    {
+        $attributes = $this->getExistingAttributes();
+        $attributesByGroups = $attributes->groupBy('group');
+
+        return $attributesByGroups->sort();
     }
 }

@@ -11,5 +11,8 @@
     "Confirm Password": "Повторить пароль",
     "Reset Password": "Сбросить пароль",
     "Send Password Reset Link": "Отправить ссылку для сброса пароля",
-    "We have emailed your password reset link!": "Мы отправили вам ссылку для сброса пароля по электронной почте!"
+    "We have emailed your password reset link!": "Мы отправили вам ссылку для сброса пароля по электронной почте!",
+    "dimensions": "Габаритные и присоеденительные размеры",
+    "specifications": "Технические характеристики",
+    "Vendor": "Артикул"
 }
