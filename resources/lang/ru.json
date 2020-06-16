@@ -18,7 +18,8 @@
     "First Name": "Имя",
     "Register Account": "Регистрация Аккаунта",
     "Repeat Password": "Повторите пароль",
-    "Already have an account? Login!": "Уже есть аккаунт? Авторизоваться!"
-
-
+    "Already have an account? Login!": "Уже есть аккаунт? Авторизоваться!",
+    "Welcome Back!": "С возвращением!",
+    "Enter Email Address...": "Введите адрес электронной почты...",
+    "Create an Account!": "Регистрация Аккаунта"
 }
