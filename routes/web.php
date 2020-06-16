@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::get('/admin', function () {
-    return view('admin.admin');
+    return view('admin.admin-app');
 });
 
 Route::post('/admin/import', 'ProductController@import')->name('admin.import');

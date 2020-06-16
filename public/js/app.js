@@ -91,7 +91,7 @@
   !*** ./resources/js/app.js ***!
   \*****************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -130,6 +130,17 @@ const app = new Vue({
     el: '#app',
 });
 */
+__webpack_require__(/*! ./burger.js */ "./resources/js/burger.js");
+
+/***/ }),
+
+/***/ "./resources/js/burger.js":
+/*!********************************!*\
+  !*** ./resources/js/burger.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
 // hide/show burger menu
 $(document).ready(function () {
   $('.header__burger').click(function (event) {
