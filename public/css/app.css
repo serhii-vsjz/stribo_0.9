@@ -502,4 +502,8 @@ html, body {
   .main__content .card {
     flex: 0 0 25%; } }
 .is-invalid {
-  color: red; }
+  border: 1px solid red; }
+
+.invalid-feedback {
+  color: red;
+  font-family: "Candara Light", serif; }

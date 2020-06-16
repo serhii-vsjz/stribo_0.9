@@ -8,12 +8,18 @@
 
 
             <form action="{{ route('category.store') }}" enctype="multipart/form-data" method="POST">
+
                 <h1>Добавить новую категорию</h1>
                 @csrf
 
                 <div class="form-group">
                     <label for="title">Название категории</label>
-                    <input type="text"  name="title" id="title" class="form-control">
+                    <input type="text"  name="title" id="title" class="form-control @error('title') is-invalid @enderror">
+                    @error('title')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
 
                 @include('category._form')

@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['verify' => true]);
 
+/*// Registration Routes...
+Route::get('register', ['as' => 'auth.register', 'uses' => 'Admin\Auth\AuthController@showRegistrationForm']);
+Route::post('register', ['as' => 'auth.register', 'uses' => 'Admin\Auth\AuthController@register']);*/
+
+
 Route::get('/admin', function () {
     return view('admin.register');
 });
