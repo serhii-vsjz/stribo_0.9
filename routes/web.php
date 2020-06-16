@@ -14,8 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['verify' => true]);
 
+/*// Registration Routes...
+Route::get('register', ['as' => 'auth.register', 'uses' => 'Admin\Auth\AuthController@showRegistrationForm']);
+Route::post('register', ['as' => 'auth.register', 'uses' => 'Admin\Auth\AuthController@register']);*/
 
 
+Route::get('/admin', function () {
+    return view('admin.register');
+});
+
+Route::post('/admin/import', 'ProductController@import')->name('admin.import');
 
 Route::get('/user', function () {
     return view('user');
@@ -52,40 +60,6 @@ Route::get('product/{product}/edit', 'ProductController@edit')->name('product.ed
 Route::put('product/{product}', 'ProductController@update')->name('product.update');
 Route::delete('product/{product}', 'ProductController@destroy')->name('product.destroy');
 
-Route::middleware('can:is_admin')->group(function () {
 
-    Route::get('admin', 'AdminController@index')->name('admin.index')->middleware('can:is_admin');
-    Route::get('admin/admins', 'AdminController@admins')->name('admin.admins');
-    Route::get('admin/charts', 'AdminController@charts')->name('admin.charts');
-    Route::get('admin/buttons', 'AdminController@buttons')->name('admin.buttons');
-    Route::get('admin/users', 'AdminController@users')->name('admin.users');
-
-    Route::get('admin/colors', 'AdminController@colors')->name('admin.colors');
-    Route::get('admin/borders', 'AdminController@borders')->name('admin.borders');
-    Route::get('admin/animations', 'AdminController@animations')->name('admin.animations');
-    Route::get('admin/other', 'AdminController@other')->name('admin.other');
-
-
-// Admin registration Routes...
-    Route::get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
-    Route::post('admin/login', 'Admin\Auth\LoginController@login');
-    Route::post('admin/logout', 'Admin\Auth\LoginController@logout');
-
-    Route::get('admin/register', 'Admin\Auth\RegisterController@showRegistrationForm');
-    Route::post('admin/register', 'Admin\Auth\RegisterController@register');
-
-    Route::get('admin/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm');
-    Route::post('admin/password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail');
-
-    Route::get('admin/password/reset/{token}','Admin\Auth\ResetPasswordController@showResetForm');
-    Route::post('admin/password/reset', 'Admin\Auth\ResetPasswordController@reset');
-
-    // work with users
-    Route::get('admin/user/{user}/active','AdminController@userActive')->name('admin.user.active');
-
-    // work with product
-    Route::get('admin/categories', 'AdminController@categories')->name('admin.categories');
-    Route::get('admin/products', 'AdminController@products')->name('admin.products');
-});
 
 
