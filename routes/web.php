@@ -14,14 +14,25 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['verify' => true]);
 
-/*// Registration Routes...
-Route::get('register', ['as' => 'auth.register', 'uses' => 'Admin\Auth\AuthController@showRegistrationForm']);
-Route::post('register', ['as' => 'auth.register', 'uses' => 'Admin\Auth\AuthController@register']);*/
+// Admin registration Routes...
+Route::get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
+Route::post('admin/login', 'Admin\Auth\LoginController@login');
+Route::post('admin/logout', 'Admin\Auth\LoginController@logout');
 
+Route::get('admin/register', 'Admin\Auth\RegisterController@showRegistrationForm');
+Route::post('admin/register', 'Admin\Auth\RegisterController@register');
+
+Route::get('admin/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm');
+Route::post('admin/password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail');
+
+Route::get('admin/password/reset/{token}','Admin\Auth\ResetPasswordController@showResetForm');
+Route::post('admin/password/reset', 'Admin\Auth\ResetPasswordController@reset');
 
 Route::get('/admin', function () {
-    return view('admin.register');
+    return view('admin.admin-app');
 });
+
+Route::get('/admin/users','AdminController@index');
 
 Route::post('/admin/import', 'ProductController@import')->name('admin.import');
 
