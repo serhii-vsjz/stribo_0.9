@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes(['verify' => true]);
+Route::get('admin', 'AdminController@index')->name('admin.index');
+Route::get('admin/tables', 'AdminController@tables')->name('admin.tables');
 
 // Admin registration Routes...
 Route::get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
@@ -27,14 +29,6 @@ Route::post('admin/password/email', 'Admin\Auth\ForgotPasswordController@sendRes
 
 Route::get('admin/password/reset/{token}','Admin\Auth\ResetPasswordController@showResetForm');
 Route::post('admin/password/reset', 'Admin\Auth\ResetPasswordController@reset');
-
-Route::get('/admin', function () {
-    return view('admin.admin-app');
-});
-
-Route::get('/admin/users','AdminController@index');
-
-Route::post('/admin/import', 'ProductController@import')->name('admin.import');
 
 Route::get('/user', function () {
     return view('user');
