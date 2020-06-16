@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 Route::get('admin', 'AdminController@index')->name('admin.index');
 Route::get('admin/tables', 'AdminController@tables')->name('admin.tables');
+Route::get('admin/test', function () {
+    return view('test');
+});
 
 // Admin registration Routes...
 Route::get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
