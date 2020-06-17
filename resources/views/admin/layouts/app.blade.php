@@ -25,7 +25,7 @@
 <!-- Page Wrapper -->
 <div id="wrapper">
 
-@include('admin.layouts.sibebar')
+@include('admin.layouts.sidebar')
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
