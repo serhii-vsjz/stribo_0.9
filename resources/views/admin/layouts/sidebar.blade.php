@@ -23,10 +23,8 @@
     <hr class="sidebar-divider">
 
     @include('admin.layouts.parts_sidebar.part')
-    @include('admin.layouts.parts_sidebar.part')
-    @include('admin.layouts.parts_sidebar.part_two')
-    @include('admin.layouts.parts_sidebar.part_two')
 
+    {{--@include('admin.layouts.parts_sidebar.part_two')--}}
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">

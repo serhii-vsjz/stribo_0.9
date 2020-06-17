@@ -15,9 +15,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 Route::get('admin', 'AdminController@index')->name('admin.index');
 Route::get('admin/tables', 'AdminController@tables')->name('admin.tables');
-Route::get('admin/test', function () {
-    return view('test');
-});
+Route::get('admin/charts', 'AdminController@charts')->name('admin.charts');
+Route::get('admin/buttons', 'AdminController@buttons')->name('admin.buttons');
+Route::get('admin/cards', 'AdminController@cards')->name('admin.cards');
+
+Route::get('admin/colors', 'AdminController@colors')->name('admin.colors');
+Route::get('admin/borders', 'AdminController@borders')->name('admin.borders');
+Route::get('admin/animations', 'AdminController@animations')->name('admin.animations');
+Route::get('admin/other', 'AdminController@other')->name('admin.other');
+
 
 // Admin registration Routes...
 Route::get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
