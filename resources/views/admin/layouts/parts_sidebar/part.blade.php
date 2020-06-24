@@ -12,8 +12,8 @@
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
-            <a class="collapse-item" href="{{ route('admin.buttons') }}">Администраторы</a>
-            <a class="collapse-item" href="{{ route('admin.cards') }}">Покупатели</a>
+            <a class="collapse-item" href="{{ route('admin.admins') }}">Администраторы</a>
+            <a class="collapse-item" href="{{ route('admin.users') }}">Покупатели</a>
         </div>
     </div>
 </li>
@@ -27,8 +27,8 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Utilities:</h6>
-            <a class="collapse-item" href="{{ route('admin.colors') }}">Категории</a>
-            <a class="collapse-item" href="{{ route('admin.borders') }}">Товары</a>
+            <a class="collapse-item" href="{{ route('admin.categories') }}">Категории</a>
+            <a class="collapse-item" href="{{ route('admin.products') }}">Товары</a>
             <a class="collapse-item" href="{{ route('admin.animations') }}">Характеристики товаров</a>
             <a class="collapse-item" href="{{ route('admin.other') }}">Other</a>
         </div>
