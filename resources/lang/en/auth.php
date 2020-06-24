@@ -17,5 +17,5 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'Login' => 'Welcome to Login Page!',
     'Logout' => 'You are logged out',
-
+    'not_active' => 'This account has not yet been activated.'
 ];

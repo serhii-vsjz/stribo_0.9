@@ -5,11 +5,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-/*
+
 require('./bootstrap');
 
 window.Vue = require('vue');
-*/
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -29,13 +29,13 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-/*
+
 const app = new Vue({
     el: '#app',
 });
-*/
 
-require('./burger.js');
+
+// require('./burger.js');
 
 
 

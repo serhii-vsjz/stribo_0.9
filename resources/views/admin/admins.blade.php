@@ -20,7 +20,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Active</th>
                     <th>-</th>
                     <th>-</th>
                     <th>-</th>
@@ -32,7 +31,6 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Role</th>
-                    <th>Active</th>
                 </tr>
                 </tfoot>
                 <tbody>
@@ -45,14 +43,6 @@
                         @foreach($user->roles as $role)
                             {{ $role->name }}{{ $loop->last?'':',' }}
                         @endforeach
-                        </td>
-                        <td>
-                            <form action="{{ route('admin.user.active', ['user' => $user]) }}" method="GET">
-                                @csrf
-                                <button>
-                                    {{ $user->is_active?'Деактивировать':'Активировать' }}
-                                </button>
-                            </form>
                         </td>
                     </tr>
                 @endforeach

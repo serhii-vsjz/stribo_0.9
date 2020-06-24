@@ -72,10 +72,4 @@ class ProductAttribute extends Model
                 return $this->string_value;
         }
     }
-
-    public function getValueByName($name)
-    {
-        $attributeId = Attribute::where('name', $name)->first()->id;
-        dd($attributeId);
-    }
 }
