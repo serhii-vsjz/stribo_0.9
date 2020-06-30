@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\ProductsImport;
+use App\Services\ProductServiceInterface;
 use App\Models\{Category, PriceTable, Product};
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
@@ -12,10 +13,12 @@ use Maatwebsite\Excel\Facades\Excel;
 class ProductController extends Controller
 {
     private $productRepository;
+    private $productService;
 
-    public function __construct(ProductRepositoryInterface $productRepository)
+    public function __construct(ProductRepositoryInterface $productRepository, ProductServiceInterface $productService)
     {
         $this->productRepository = $productRepository;
+        $this->productService = $productService;
     }
 
     /**
@@ -57,43 +60,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        $product = $this->productService->createProduct($request->parent_id, $request->vendor);
 
-        dd($request);
+        dd($product);
         die();
-        $product = new Product();
-/*
-        if ($request->file('file'))
-        {
-            $image = $request->file('file')->store('images');
-            $category->image = $image;
-        } else {
-            $category->image = 'images/empty.png';
-        }
-*/
-        if ($request->file('file'))
-        {
-            $image = $request->file('file')->store('images');
-            $product->image = $image;
-        } else {
-            $product->image = 'images/empty.png';
-        }
-
-
-
-        $product->category_id = $request->parent_id;
-
-        $product->vendor = $request->vendor;
-
-        $product->save();
-        if($request->price)
-        {
-            $price = new PriceTable();
-            $price->product()->associate($product);
-            $price->price = $request->price;
-            $price->save();
-            $product->price_table_id=$price->id;
-
-        }
 
         return redirect(session('links')[2]); // Will redirect 2 links back
     }
