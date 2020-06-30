@@ -72,4 +72,19 @@ class ProductAttribute extends Model
                 return $this->string_value;
         }
     }
+
+    public function setValue($value)
+    {
+        switch ($this->attribute->type) {
+            case 'int':
+                $this->int_value = $value;
+                break;
+            case 'float':
+                $this->float_value = $value;
+                break;
+            case 'string':
+                $this->string_value = $value;
+                break;
+        }
+    }
 }
