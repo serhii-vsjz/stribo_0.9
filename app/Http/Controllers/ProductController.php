@@ -62,8 +62,7 @@ class ProductController extends Controller
     {
         $product = $this->productService->createProduct($request->parent_id, $request->vendor);
 
-        dd($product);
-        die();
+        $this->productService->addProductAttributes($product, array_combine($request->attribute, $request->value));
 
         return redirect(session('links')[2]); // Will redirect 2 links back
     }
