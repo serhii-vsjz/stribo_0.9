@@ -57,6 +57,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request);
+        die();
         $product = new Product();
 /*
         if ($request->file('file'))

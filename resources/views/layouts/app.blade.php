@@ -11,18 +11,20 @@
     <meta name="google-site-verification" content="sRYLW56TPQHIWD7zzKuKDY6YbgbPFUdRdEA3rm92ViM" />
 </head>
 <body>
-    @include('layouts.header')
-    @include('layouts.contacts')
+    <div id="app">
 
-    <div class="main">
-        <div class="container">
-            @yield('content')
+        @include('layouts.header')
+        @include('layouts.contacts')
+
+        <div class="main">
+            <div class="container">
+                @yield('content')
+            </div>
         </div>
+
+        {{--@include('layouts.footer')--}}
+
     </div>
-
-    @include('layouts.footer')
-
-
     <script type="text/javascript" src="{{ url('https://code.jquery.com/jquery-3.4.1.slim.min.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
