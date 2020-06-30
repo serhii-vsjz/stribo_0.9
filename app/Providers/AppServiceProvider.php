@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use App\Console\Commands\ModelMakeCommand;
+
+use App\Services\ProductService;
+use App\Services\ProductServiceInterface;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -25,6 +28,11 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->environment() !== 'production') {
             $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
         }
+
+        $this->app->bind(
+            ProductServiceInterface::class,
+            ProductService::class
+        );
     }
 
     /**
