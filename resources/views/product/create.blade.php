@@ -14,6 +14,11 @@
             @include('category._form')
 
             <div class="form-group">
+                <label for="file">Изображение</label>
+                <input type="file" name="file" id="file" class="input-file">
+            </div>
+
+            <div class="form-group">
                 <label for="price">Цена</label>
                 <input type="text"  name="price" id="price" class="form-control">
             </div>
