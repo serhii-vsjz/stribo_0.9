@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Console\Commands\ModelMakeCommand;
 
+use App\Services\CategoryService;
+use App\Services\CategoryServiceInterface;
 use App\Services\ProductService;
 use App\Services\ProductServiceInterface;
 use Illuminate\Support\Facades\Schema;
@@ -32,6 +34,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             ProductServiceInterface::class,
             ProductService::class
+        );
+
+        $this->app->bind(
+            CategoryServiceInterface::class,
+            CategoryService::class
         );
     }
 

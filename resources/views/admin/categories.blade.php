@@ -18,13 +18,30 @@
                 <tr>
                     <th>Id</th>
                     <th>Title</th>
+                    <th>Vendor</th>
+                    <th>Image</th>
+                    <th>Drawing</th>
+                    <th>Active</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($categories as $category)
                     <tr>
                         <td>{{ $category->id }}</td>
-                        <td>{{ $category->title }}</td>
+                        <td>
+                            <a href="{{ route('admin.category.show', ['category' => $category]) }}">{{ $category->title }}</a>
+                        </td>
+
+                        <td>{{ $category->vendor }}</td>
+                        <td>
+                            <img style="height: 10%" src="{{ asset($category->image) }}">
+                        </td>
+                        <td>
+                            <img style="height: 10%" src="{{ asset($category->drawing) }}">
+                        </td>
+                        <td>
+                            {{ $category->active }}
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

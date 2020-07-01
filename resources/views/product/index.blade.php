@@ -5,7 +5,7 @@
     @include('category._navigate')
 
 <div class="main__products">
-    <h3>Серия SQ - Стандартный цилиндр ISO6431</h3>
+    <h3>Серия SQ - Стандартный цилиндр I-SO6431</h3>
     <h4>Standart square</h4>
     <br>
 
