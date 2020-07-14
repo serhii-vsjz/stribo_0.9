@@ -125,43 +125,55 @@ $border_red_line: 1px solid grey;
 
 .main__products {
     padding: 10px;
-    h3 {
-        color: #3d3d3d;
-    }
-    h4 {
-        color: #626262;
+
+
+    .title__block
+    {
+        border: 1px solid grey;
+        margin-bottom: 30px;
+        h3 {
+            color: #990200;
+        }
+        h4 {
+            color: #626108;
+        }
     }
 
-    .picture {
+    .image__block {
         display: inline-block;
-        padding: 50px 0 50px 0;
-        width: 260px;
+        font-family: "Poplar Kozel", serif;
+        font-size: 10em;
+        height: 1em;
+        width: 2em;
+        padding-top: 0.25em;
+        padding-bottom: 0.25em;
 
-        .picture_vendor {
-            .h3 {
-                color: white;
-                padding: 0.25em 0.1em;
-                font-family: "Poplar Kozel";
-                font-size: 4em;
-                overflow: visible;
+        border: 1px solid red;
 
-            }
-
-            width: 100%;
-            height: 100px;
+        .image__vendor {
+            width: 2em;
+            height: 0.5em;
             background: linear-gradient(to left, #ffffff, #6794c3);
-
+            padding-left: 0.05em;
+            overflow: visible;
+            .h3 {
+                font-size: 0.5em;
+                color: white;
+                overflow: visible;
+            }
             .image {
-                margin-top: -10em;
-                margin-left: 4em;
-                width: 200px;
-
+                border: 1px solid green;
+                width: 1em;
+                // margin-left: 1em;
+                margin-top: -1em;
             }
         }
     }
 
-    .drawing {
-        display: inline-block;
+    .chart__block {
+        display: none;
+        border: 1px solid green;
+        border-radius: 5px;
         height: 200px;
         margin-left: auto;
         margin-right: 0em;

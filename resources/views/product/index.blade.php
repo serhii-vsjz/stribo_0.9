@@ -5,24 +5,23 @@
     @include('category._navigate')
 
 <div class="main__products">
-    <h3>Серия SQ - Стандартный цилиндр I-SO6431</h3>
-    <h4>Standart square</h4>
-    <br>
 
-    <h2>{{ $currentCategory->title }}</h2>
-    <h3>{{ $currentCategory->vender }}</h3>
+    <div class="title__block">
+        <h3>Серия SQ - Стандартный цилиндр I-SO6431</h3>
+        <h4>Standart square</h4>
+    </div>
 
-    <div class="picture">
-        <div class="picture_vendor">
+    <div class="image__block">
+        <div class="image__vendor">
             <div class="h3">
-                {{ $currentCategory->vendor }}
+                EPE
             </div>
             <img class="image" src="{{ asset($currentCategory->image) }}" alt="">
         </div>
     </div>
 
 
-    <div class="drawing">
+    <div class="chart__block">
         <div class="picture_drawing">
             <img class="drawing" src="{{ asset($currentCategory->drawing) }}" alt="">
         </div>
@@ -31,7 +30,6 @@
 
 
     {{--From this point, the display of all product characteristics tables begins--}}
-
     @foreach($attributesByGroups as $tableName => $attributes)
     <table class="table">
         <caption>{{ __($tableName) }}</caption>

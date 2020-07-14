@@ -222,37 +222,47 @@ html, body {
 
 .main__products {
   padding: 10px; }
-  .main__products h3 {
-    color: #3d3d3d; }
-  .main__products h4 {
-    color: #626262; }
-  .main__products .picture {
+  .main__products .title__block {
+    border: 1px solid grey;
+    margin-bottom: 30px; }
+    .main__products .title__block h3 {
+      color: #990200; }
+    .main__products .title__block h4 {
+      color: #626108; }
+  .main__products .image__block {
     display: inline-block;
-    padding: 50px 0 50px 0;
-    width: 260px; }
-    .main__products .picture .picture_vendor {
-      width: 100%;
-      height: 100px;
-      background: linear-gradient(to left, #ffffff, #6794c3); }
-      .main__products .picture .picture_vendor .h3 {
+    font-family: "Poplar Kozel", serif;
+    font-size: 10em;
+    height: 1em;
+    width: 2em;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    border: 1px solid red; }
+    .main__products .image__block .image__vendor {
+      width: 2em;
+      height: 0.5em;
+      background: linear-gradient(to left, #ffffff, #6794c3);
+      padding-left: 0.05em;
+      overflow: visible; }
+      .main__products .image__block .image__vendor .h3 {
+        font-size: 0.5em;
         color: white;
-        padding: 0.25em 0.1em;
-        font-family: "Poplar Kozel";
-        font-size: 4em;
         overflow: visible; }
-      .main__products .picture .picture_vendor .image {
-        margin-top: -10em;
-        margin-left: 4em;
-        width: 200px; }
-  .main__products .drawing {
-    display: inline-block;
+      .main__products .image__block .image__vendor .image {
+        border: 1px solid green;
+        width: 1em;
+        margin-top: -1em; }
+  .main__products .chart__block {
+    display: none;
+    border: 1px solid green;
+    border-radius: 5px;
     height: 200px;
     margin-left: auto;
     margin-right: 0em; }
-    .main__products .drawing .picture_drawing {
+    .main__products .chart__block .picture_drawing {
       width: 100px;
       height: 100px; }
-      .main__products .drawing .picture_drawing .drawing {
+      .main__products .chart__block .picture_drawing .drawing {
         width: 200px; }
   .main__products .table {
     width: 100%;

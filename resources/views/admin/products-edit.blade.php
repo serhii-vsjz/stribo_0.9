@@ -17,19 +17,17 @@
         <input type="submit">
     </form>
 </div>
-
-<div class="edit">
-    <form action="{{ route('admin.products.edit', ['category' => $currentCategory]) }}" enctype="multipart/form-data" method="POST" >
+<div class="form-edit">
+    <form id="form_edit" action="{{ route('admin.products.update', ['category' => $currentCategory]) }}" enctype="multipart/form-data" method="POST">
         @csrf
-        <input type="submit" value="Режим редактирования">
     </form>
-
 </div>
+
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">{{ $currentCategory!=''?$currentCategory->title:"Все продукты" }}</h6>
+        <h6 class="m-0 font-weight-bold text-primary">{{ $currentCategory!=''?$currentCategory->title:"Все продукты"}} (Режим редактирования)</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -38,7 +36,7 @@
             {{--From this point, the display of all product characteristics tables begins--}}
 
             @foreach($attributesByGroups as $tableName => $attributes)
-                <table class="table">
+                <table class="table" id="table">
                     <caption>{{ __($tableName) }}</caption>
                     <tr>
                         <td>
@@ -57,7 +55,7 @@
                                 {{ $product->vendor }}
                             </td>
                             @foreach($attributes as $attribute)
-                                <td>
+                                <td class="td" name="{{ $product . '-' . $attribute->id }}">
                                     @if($product->getAttributeValueById($attribute->id))
                                         {{ $product->getAttributeValueById($attribute->id) }}
                                     @else
@@ -69,35 +67,41 @@
                     @endforeach
                 </table>
             @endforeach
-
-            {{--
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Категория</th>
-                    <th>Артикул</th>
-                    <th>Цена</th>
-                    <th>Действия</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($products as $product)
-                    <tr id="product">
-                        <td>{{ $product->id }}</td>
-                        <td>{{ $product->category->title}}</td>
-                        <td>{{ $product->vendor }}</td>
-                        <td>{{ $product->vendor }}</td>
-                        <td id="plus">
-                            +
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-            --}}
         </div>
     </div>
 </div>
 
+<button form="form_edit" type="submit">Сохранить изменения</button>
+
+
+
+    <script>
+        const buttons = document.querySelectorAll('.td');
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+
+                // Получаем елемент на который кликнули
+                const el = e.target;
+
+                // Сохраняем и очищаем значение ячейки
+                const text = el.textContent.trim();
+                el.textContent = '';
+
+
+                // переменная формы для привязки
+
+                const form = document.querySelector('#form_edit');
+
+
+                // Создаем элемент
+                const input = document.createElement('input');
+                el.appendChild(input);
+                input.value = text;
+                input.name = 'test';
+                input.focus();
+
+                form.oninput(input)
+            })
+        })
+    </script>
 @endsection

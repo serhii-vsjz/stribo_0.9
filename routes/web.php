@@ -87,7 +87,11 @@ Route::middleware('can:is_admin')->group(function () {
     Route::get('admin/categories', 'AdminController@categories')->name('admin.categories');
     Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
     Route::get('admin/products', 'AdminController@products')->name('admin.products');
+
     Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
+
+    Route::post('admin/category/{category}/products/edit', 'AdminController@productsEdit')->name('admin.products.edit');
+    Route::post('admin/category/{category}/products/update', 'AdminController@productsUpdate')->name('admin.products.update');
 });
 
 

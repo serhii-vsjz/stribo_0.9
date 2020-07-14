@@ -40,7 +40,7 @@ class AdminController extends Controller
         ]);
     }
 
-    public function categoryShow($category)
+    public function categoryShow(Category $category)
     {
         return view('admin.products', [
             'products' => $category->products??'',
@@ -51,11 +51,27 @@ class AdminController extends Controller
 
     public function productsUpload(Request $request)
     {
-
         $array = Excel::toArray(new ProductsImport(), $request->file('excel'));
 
         $this->productService->addProductsFromArray($array);
 
         return redirect(session('links')[1]); // Will redirect 1 links back
+    }
+
+    public function productsEdit(Category $category)
+    {
+        return view('admin.products-edit', [
+            'products' => $category->products??'',
+            'attributesByGroups' => $category->getExistingAttributesByGroups()??'',
+            'currentCategory' => $category??'',
+        ]);
+
+    }
+
+    public function productsUpdate(Category $category, Request $request)
+    {
+        echo "here";
+        dd($request->request);
+        die();
     }
 }
