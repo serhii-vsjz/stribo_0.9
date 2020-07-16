@@ -230,28 +230,26 @@ html, body {
     .main__products .title__block h4 {
       color: #626108; }
   .main__products .image__block {
-    display: inline-block;
+    position: relative;
+    border: 1px solid white;
     font-family: "Poplar Kozel", serif;
-    font-size: 10em;
+    font-size: 14em;
     height: 1em;
-    width: 2em;
-    padding-top: 0.25em;
-    padding-bottom: 0.25em;
-    border: 1px solid red; }
+    width: 1.6em; }
+    .main__products .image__block .image {
+      position: absolute;
+      z-index: 2;
+      height: 1em;
+      left: 0.6em; }
     .main__products .image__block .image__vendor {
-      width: 2em;
-      height: 0.5em;
+      margin-top: 0.3em;
+      width: 1.6em;
+      height: 0.4em;
       background: linear-gradient(to left, #ffffff, #6794c3);
-      padding-left: 0.05em;
-      overflow: visible; }
+      padding-left: 0.03em; }
       .main__products .image__block .image__vendor .h3 {
-        font-size: 0.5em;
-        color: white;
-        overflow: visible; }
-      .main__products .image__block .image__vendor .image {
-        border: 1px solid green;
-        width: 1em;
-        margin-top: -1em; }
+        font-size: 0.4em;
+        color: white; }
   .main__products .chart__block {
     display: none;
     border: 1px solid green;

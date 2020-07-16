@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes(['verify' => true]);
 
-
-
-
 Route::get('/user', function () {
+    $a = 55555;
     return view('user');
 })->name('user');
 
@@ -83,15 +82,18 @@ Route::middleware('can:is_admin')->group(function () {
     // work with users
     Route::get('admin/user/{user}/active','AdminController@userActive')->name('admin.user.active');
 
-    // work with product
+    // work with product/categories
     Route::get('admin/categories', 'AdminController@categories')->name('admin.categories');
-    Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
     Route::get('admin/products', 'AdminController@products')->name('admin.products');
+    Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
 
-    Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
 
     Route::post('admin/category/{category}/products/edit', 'AdminController@productsEdit')->name('admin.products.edit');
     Route::post('admin/category/{category}/products/update', 'AdminController@productsUpdate')->name('admin.products.update');
+
+    Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
+    Route::post('admin/categories/upload', 'AdminController@categoriesUpload')->name('admin.categories.upload');
+
 });
 
 

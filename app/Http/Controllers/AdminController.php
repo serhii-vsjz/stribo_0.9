@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\CategoryImport;
 use App\Imports\ProductsImport;
 use App\Models\Category;
 use App\Models\Product;
@@ -22,6 +23,8 @@ class AdminController extends Controller
 
     public function index()
     {
+        $a = 1;
+        $v = 2;
         return view('admin.index');
     }
 
@@ -34,7 +37,6 @@ class AdminController extends Controller
 
     public function categories()
     {
-
         return view('admin.categories', [
             'categories' => Category::all()
         ]);
@@ -42,10 +44,8 @@ class AdminController extends Controller
 
     public function categoryShow(Category $category)
     {
-        return view('admin.products', [
-            'products' => $category->products??'',
-            'attributesByGroups' => $category->getExistingAttributesByGroups()??'',
-            'currentCategory' => $category??'',
+        return view('admin.categories', [
+            'categories' => $category->children,
         ]);
     }
 
@@ -56,6 +56,13 @@ class AdminController extends Controller
         $this->productService->addProductsFromArray($array);
 
         return redirect(session('links')[1]); // Will redirect 1 links back
+    }
+
+    public function categoriesUpload(Request $request)
+    {
+        $array = Excel::import(new CategoryImport(), $request->file('excel'));
+
+        return redirect(route('admin.categories'));
     }
 
     public function productsEdit(Category $category)

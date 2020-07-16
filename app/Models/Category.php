@@ -42,6 +42,15 @@ use Illuminate\Support\Collection;
  */
 class Category extends Model
 {
+    protected $fillable = [
+        'parent_id',
+        'title',
+        'vendor',
+        'image',
+        'drawing',
+        'active',
+    ];
+
     public function children(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id');

@@ -126,7 +126,6 @@ $border_red_line: 1px solid grey;
 .main__products {
     padding: 10px;
 
-
     .title__block
     {
         border: 1px solid grey;
@@ -140,34 +139,35 @@ $border_red_line: 1px solid grey;
     }
 
     .image__block {
-        display: inline-block;
+        position: relative;
+        border: 1px solid white;
         font-family: "Poplar Kozel", serif;
-        font-size: 10em;
+        font-size: 14em;
         height: 1em;
-        width: 2em;
-        padding-top: 0.25em;
-        padding-bottom: 0.25em;
+        width: 1.6em;
 
-        border: 1px solid red;
+        .image {
+            position: absolute;
+            z-index: 2;
+            height: 1em;
+            left: 0.6em;
+        }
 
         .image__vendor {
-            width: 2em;
-            height: 0.5em;
+
+            margin-top: 0.3em;
+            width: 1.6em;
+            height: 0.4em;
             background: linear-gradient(to left, #ffffff, #6794c3);
-            padding-left: 0.05em;
-            overflow: visible;
+            padding-left: 0.03em;
+
             .h3 {
-                font-size: 0.5em;
+                font-size: 0.4em;
                 color: white;
-                overflow: visible;
             }
-            .image {
-                border: 1px solid green;
-                width: 1em;
-                // margin-left: 1em;
-                margin-top: -1em;
-            }
+
         }
+
     }
 
     .chart__block {

@@ -15,10 +15,6 @@ class ProductsImport implements ToModel
     */
     public function model(array $row)
     {
-       dd($row);
-
-        die();
-
         $product = new Product([
             'category_id' => $row[0],
             'vendor' => $row[1],

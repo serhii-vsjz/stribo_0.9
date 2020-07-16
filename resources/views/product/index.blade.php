@@ -12,18 +12,21 @@
     </div>
 
     <div class="image__block">
+        <img class="image" src="{{ asset('images/' . $currentCategory->image) }}" alt="">
         <div class="image__vendor">
+
             <div class="h3">
-                EPE
+                {{ $currentCategory->vendor }}
             </div>
-            <img class="image" src="{{ asset($currentCategory->image) }}" alt="">
+
         </div>
+
     </div>
 
 
     <div class="chart__block">
         <div class="picture_drawing">
-            <img class="drawing" src="{{ asset($currentCategory->drawing) }}" alt="">
+            <img class="drawing" src="{{ asset('drawing/' . $currentCategory->image) }}" alt="">
         </div>
     </div>
 

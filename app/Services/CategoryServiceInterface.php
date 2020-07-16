@@ -8,5 +8,5 @@ use App\Models\Category;
 
 interface CategoryServiceInterface
 {
-    public function getCategoryByName($name): Category;
+    public function getCategoryByName($name);
 }

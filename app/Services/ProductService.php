@@ -80,6 +80,7 @@ class ProductService implements ProductServiceInterface
                 $product = new Product();
                 $product->vendor = $row[$indexVendor];
                 $category = $this->categoryService->getCategoryByName($row[$indexCategory]);
+                $product->category_id = $category->id;
                 $product->category()->associate($category);
                 $product->save();
 
@@ -92,8 +93,6 @@ class ProductService implements ProductServiceInterface
 
                 $this->addProductAttributes($product, $attributes);
             }
-
-
         }
 
 
