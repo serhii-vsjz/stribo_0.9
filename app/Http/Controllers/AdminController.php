@@ -31,7 +31,9 @@ class AdminController extends Controller
     public function products()
     {
         return view('admin.products', [
-            'products' => Product::all()
+            'categories' => Category::all(),
+            'products' => Product::all(),
+            'delimiter' => ' ',
         ]);
     }
 
@@ -53,7 +55,7 @@ class AdminController extends Controller
     {
         $array = Excel::toArray(new ProductsImport(), $request->file('excel'));
 
-        $this->productService->addProductsFromArray($array);
+        $this->productService->addProductsFromArray($array, $request->parent_id);
 
         return redirect(session('links')[1]); // Will redirect 1 links back
     }

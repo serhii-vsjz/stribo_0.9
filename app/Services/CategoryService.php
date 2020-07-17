@@ -8,9 +8,14 @@ use App\Models\Category;
 
 class CategoryService implements CategoryServiceInterface
 {
-    public function getCategoryByName($name)
+    public function getCategoryByVendor($name)
     {
-        $category = Category::where('title', $name)->first();
+        $category = Category::where('vendor', $name)->first();
         return $category;
+    }
+
+    public function getCategoryById(int $id): Category
+    {
+        return Category::find($id);
     }
 }

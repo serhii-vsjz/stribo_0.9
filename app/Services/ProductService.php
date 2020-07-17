@@ -34,6 +34,11 @@ class ProductService implements ProductServiceInterface
     {
         foreach ($attributes as $name => $value)
         {
+            if (!$name)
+            {
+                continue;
+            }
+
             if (!($attribute = (Attribute::where('name', $name)->first())))
             {
                 $attribute = new Attribute();
@@ -51,8 +56,6 @@ class ProductService implements ProductServiceInterface
                 } else {
                     $attribute->type = 'string';
                 }
-
-
 
                 $attribute->save();
             }
@@ -79,8 +82,7 @@ class ProductService implements ProductServiceInterface
             {
                 $product = new Product();
                 $product->vendor = $row[$indexVendor];
-                $category = $this->categoryService->getCategoryByName($row[$indexCategory]);
-                $product->category_id = $category->id;
+                $category = $this->categoryService->getCategoryById($row[$indexCategory]);
                 $product->category()->associate($category);
                 $product->save();
 
@@ -94,7 +96,5 @@ class ProductService implements ProductServiceInterface
                 $this->addProductAttributes($product, $attributes);
             }
         }
-
-
     }
 }

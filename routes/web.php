@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +15,6 @@ use Illuminate\Support\Facades\Auth;
 Auth::routes(['verify' => true]);
 
 Route::get('/user', function () {
-    $a = 55555;
     return view('user');
 })->name('user');
 
@@ -49,7 +47,7 @@ Route::post('product', 'ProductController@store')->name('product.store');
 Route::get('product/show/{product}', 'ProductController@show')->name('product.show');
 Route::get('product/{product}/edit', 'ProductController@edit')->name('product.edit');
 Route::put('product/{product}', 'ProductController@update')->name('product.update');
-Route::delete('product/{product}', 'ProductController@destroy')->name('product.destroy');
+Route::delete('product/', 'ProductController@destroy')->name('product.destroy');
 
 Route::middleware('can:is_admin')->group(function () {
 

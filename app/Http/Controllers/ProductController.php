@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Imports\ProductsImport;
 use App\Services\ProductServiceInterface;
-use App\Models\{Category, PriceTable, Product};
+use App\Models\{Category, Product};
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -56,15 +56,30 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
+
      */
     public function store(Request $request)
     {
+        $product = Product::create([
+            'category_id' => $request->category_id,
+            'vendor' => $request->vendor,
+        ]);
+
+        $data = [
+            'id' => $product->id,
+            'category_id' => $request->category_id,
+            'vendor' => $request->vendor
+        ];
+
+        return $data;
+
+        /*
         $product = $this->productService->createProduct($request->parent_id, $request->vendor);
 
         $this->productService->addProductAttributes($product, array_combine($request->attribute, $request->value));
 
         return redirect(session('links')[2]); // Will redirect 2 links back
+        */
     }
 
     /**
@@ -132,7 +147,7 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Product $product
-     * @return Response
+     *
      */
     public function destroy(Product $product)
     {
@@ -141,7 +156,7 @@ class ProductController extends Controller
         } catch (\Exception $e) {
         }
 
-        return redirect()-back();
+        return 'ok';
     }
 
     public function import(Request $request)

@@ -7,37 +7,55 @@
             @csrf
             <label>Загрузить категории с Excel файла</label>
             <input type="file" name="excel">
-            <input type="submit">
+            <button type="submit" class="btn btn-primary">Отправить</button>
         </form>
     </div>
 
-    <!-- DataTales Example -->
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>CategoryId</th>
-                        <th>Vendor</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($products as $product)
-                        <tr>
-                            <td>{{ $product->id }}</td>
-                            <td>{{ $product->category_id }}</td>
-                            <td>{{ $category->vendor }}</td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addProduct">
+        Добавить продукт
+    </button>
+
+    @include('admin.products-table')
+
+    <!-- Delete script -->
+    <script>
+        $('#tbody').on('click','.delete',function(e){
+
+            e.preventDefault();
+
+            var url = $(this).data('href');
+
+            var el = $(this).parents('tr');
+
+            $.ajax({
+
+                url: url,
+
+                type: "DELETE",
+
+                headers: {
+
+                    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+
+                },
+
+                success: function (data) {
+
+                    el.detach();
+
+                },
+
+                error: function (msg) {
+
+                    alert('Ошибка');
+
+                }
+
+            });
+
+        });
+    </script>
+
+
 
 @endsection

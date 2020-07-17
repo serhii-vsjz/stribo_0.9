@@ -8,5 +8,6 @@ use App\Models\Category;
 
 interface CategoryServiceInterface
 {
-    public function getCategoryByName($name);
+    public function getCategoryById(int $id): Category;
+    public function getCategoryByVendor($name);
 }
