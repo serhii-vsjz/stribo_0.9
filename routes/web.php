@@ -47,51 +47,39 @@ Route::post('product', 'ProductController@store')->name('product.store');
 Route::get('product/show/{product}', 'ProductController@show')->name('product.show');
 Route::get('product/{product}/edit', 'ProductController@edit')->name('product.edit');
 Route::put('product/{product}', 'ProductController@update')->name('product.update');
-Route::delete('product/', 'ProductController@destroy')->name('product.destroy');
+Route::delete('product/{id}', 'ProductController@destroy')->name('product.destroy');
 
-Route::middleware('can:is_admin')->group(function () {
+//
+//Route::middleware('can:is_admin')->group(function () {
+//
+//});
+//
+Route::get('admin', 'AdminController@index')->name('admin.index')->middleware('can:is_admin');
+Route::get('admin/admins', 'AdminController@admins')->name('admin.admins');
+Route::get('admin/charts', 'AdminController@charts')->name('admin.charts');
+Route::get('admin/buttons', 'AdminController@buttons')->name('admin.buttons');
+Route::get('admin/users', 'AdminController@users')->name('admin.users');
 
-    Route::get('admin', 'AdminController@index')->name('admin.index')->middleware('can:is_admin');
-    Route::get('admin/admins', 'AdminController@admins')->name('admin.admins');
-    Route::get('admin/charts', 'AdminController@charts')->name('admin.charts');
-    Route::get('admin/buttons', 'AdminController@buttons')->name('admin.buttons');
-    Route::get('admin/users', 'AdminController@users')->name('admin.users');
+Route::get('admin/colors', 'AdminController@colors')->name('admin.colors');
+Route::get('admin/borders', 'AdminController@borders')->name('admin.borders');
+Route::get('admin/animations', 'AdminController@animations')->name('admin.animations');
+Route::get('admin/other', 'AdminController@other')->name('admin.other');
 
-    Route::get('admin/colors', 'AdminController@colors')->name('admin.colors');
-    Route::get('admin/borders', 'AdminController@borders')->name('admin.borders');
-    Route::get('admin/animations', 'AdminController@animations')->name('admin.animations');
-    Route::get('admin/other', 'AdminController@other')->name('admin.other');
+// work with users
+Route::get('admin/user/{user}/active','AdminController@userActive')->name('admin.user.active');
 
-
-// Admin registration Routes...
-    Route::get('admin/login', 'Admin\Auth\LoginController@showLoginForm');
-    Route::post('admin/login', 'Admin\Auth\LoginController@login');
-    Route::post('admin/logout', 'Admin\Auth\LoginController@logout');
-
-    Route::get('admin/register', 'Admin\Auth\RegisterController@showRegistrationForm');
-    Route::post('admin/register', 'Admin\Auth\RegisterController@register');
-
-    Route::get('admin/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm');
-    Route::post('admin/password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail');
-
-    Route::get('admin/password/reset/{token}','Admin\Auth\ResetPasswordController@showResetForm');
-    Route::post('admin/password/reset', 'Admin\Auth\ResetPasswordController@reset');
-
-    // work with users
-    Route::get('admin/user/{user}/active','AdminController@userActive')->name('admin.user.active');
-
-    // work with product/categories
-    Route::get('admin/categories', 'AdminController@categories')->name('admin.categories');
-    Route::get('admin/products', 'AdminController@products')->name('admin.products');
-    Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
+// work with product/categories
+Route::get('admin/categories', 'AdminController@categories')->name('admin.categories');
+Route::get('admin/products', 'AdminController@products')->name('admin.products');
+Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
 
 
-    Route::post('admin/category/{category}/products/edit', 'AdminController@productsEdit')->name('admin.products.edit');
-    Route::post('admin/category/{category}/products/update', 'AdminController@productsUpdate')->name('admin.products.update');
+Route::post('admin/category/{category}/products/edit', 'AdminController@productsEdit')->name('admin.products.edit');
+Route::post('admin/category/{category}/products/update', 'AdminController@productsUpdate')->name('admin.products.update');
 
-    Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
-    Route::post('admin/categories/upload', 'AdminController@categoriesUpload')->name('admin.categories.upload');
+Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
+Route::post('admin/categories/upload', 'AdminController@categoriesUpload')->name('admin.categories.upload');
 
-});
+
 
 

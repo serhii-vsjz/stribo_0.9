@@ -9,6 +9,7 @@ use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Maatwebsite\Excel\Facades\Excel;
+use phpDocumentor\Reflection\Types\Integer;
 
 class ProductController extends Controller
 {
@@ -56,18 +57,17 @@ class ProductController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-
      */
     public function store(Request $request)
     {
         $product = Product::create([
-            'category_id' => $request->category_id,
+            'category_id' => $request->category,
             'vendor' => $request->vendor,
         ]);
 
         $data = [
             'id' => $product->id,
-            'category_id' => $request->category_id,
+            'category' => $request->category_id,
             'vendor' => $request->vendor
         ];
 
@@ -146,17 +146,13 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Product $product
+     * @param Integer $id
      *
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        try {
-            $product->delete();
-        } catch (\Exception $e) {
-        }
-
-        return 'ok';
+        $product = Product::find($id)->delete();
+        return 'oko';
     }
 
     public function import(Request $request)

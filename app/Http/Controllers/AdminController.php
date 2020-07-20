@@ -23,17 +23,13 @@ class AdminController extends Controller
 
     public function index()
     {
-        $a = 1;
-        $v = 2;
         return view('admin.index');
     }
 
     public function products()
     {
         return view('admin.products', [
-            'categories' => Category::all(),
             'products' => Product::all(),
-            'delimiter' => ' ',
         ]);
     }
 
