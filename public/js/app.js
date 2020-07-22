@@ -91,7 +91,7 @@
   !*** ./resources/js/app.js ***!
   \*****************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 /**
  * First we will load all of this project's JavaScript dependencies which
@@ -122,7 +122,7 @@
 // const app = new Vue({
 //     el: '#app',
 // });
-// require('./burger.js');
+__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './burger.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 /***/ }),
 

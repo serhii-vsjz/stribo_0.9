@@ -7,8 +7,8 @@
 <div class="main__products">
 
     <div class="title__block">
-        <h3>Серия SQ - Стандартный цилиндр I-SO6431</h3>
-        <h4>Standart square</h4>
+        <h3>{{ $currentCategory->title }}</h3>
+        <h3>{{ $currentCategory->vendor }}</h3>
     </div>
 
     <div class="image__block">

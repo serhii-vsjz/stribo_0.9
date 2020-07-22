@@ -1,7 +1,16 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<h1>Список статей</h1>
+<div class="upload">
+    <form action="{{ route('admin.products.upload') }}" enctype="multipart/form-data" method="POST" >
+        @csrf
+        <label>Загрузить категории с Excel файла</label>
+        <input type="file" name="excel">
+        <input type="submit">
+    </form>
+</div>
+
+<h1>Список продуктов</h1>
 
 <div class='row'>
     <button type="button" class="btn btn-primary btn-lg pull-right" data-toggle="modal" data-target="#addArticle">
@@ -21,7 +30,7 @@
         </tr>
         </thead>
 
-        <tbody>
+        <tbodpry>
         @foreach($products as $product)
 
             <tr>
@@ -31,7 +40,7 @@
             </tr>
 
         @endforeach
-        </tbody>
+        </tbodpry>
 
     </table>
 </div>
@@ -71,9 +80,7 @@
             </div>
 
         </div>
-
     </div>
-
 </div>
 
 

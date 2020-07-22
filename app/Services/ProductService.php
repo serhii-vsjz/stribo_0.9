@@ -32,6 +32,7 @@ class ProductService implements ProductServiceInterface
 
     public function addProductAttributes(Product $product, array $attributes): Product
     {
+        $group = 'empty';
         foreach ($attributes as $name => $value)
         {
             if (!$name)
@@ -39,11 +40,17 @@ class ProductService implements ProductServiceInterface
                 continue;
             }
 
+            if ($name == 'Group')
+            {
+                $group = $value;
+                continue;
+            }
+
             if (!($attribute = (Attribute::where('name', $name)->first())))
             {
                 $attribute = new Attribute();
                 $attribute->name = $name;
-                $attribute->group = 'dimensions';
+                $attribute->group = $group;
 
                 if (is_numeric($value))
                 {
@@ -70,6 +77,13 @@ class ProductService implements ProductServiceInterface
         return $product;
     }
 
+    /**
+     *
+     * Accepts an array with the name of the product and a set of attributes
+     * Creates products with attributes
+     *
+     * @param  array  $arrayPage
+     */
     public function addProductsFromArray(array $arrayPage)
     {
         foreach ($arrayPage as $page)
@@ -80,7 +94,14 @@ class ProductService implements ProductServiceInterface
 
             foreach ($page as $row)
             {
-                $product = new Product();
+
+                $product = Product::where('vendor', $row[$indexVendor])->first();
+
+                if (!$product)
+                {
+                    $product = new Product();
+                }
+
                 $product->vendor = $row[$indexVendor];
                 $category = $this->categoryService->getCategoryById($row[$indexCategory]);
                 $product->category()->associate($category);

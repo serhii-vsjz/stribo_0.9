@@ -116,11 +116,12 @@
 
                     $('.alert').removeClass('show').addClass('hidden');
 
-                    var str = '<tr><td>'+data['id']+
+
+                    let str = '<tr><td>'+data['id']+
 
                         '</td><td><a href="/product/'+data['id']+'">'+data['vendor']+'</a>'+
 
-                        '</td><td><a href="/product/'+data['id']+'" class="delete" data="'+data['id']+'">Удалить</a></td></tr>';
+                        '</td><td><a href="/product/'+data['id']+'" class="delete" data-href="id:'+data['id']+'">Удалить</a></td></tr>';
 
                     $('.table > tbody:last').append(str);
                 },

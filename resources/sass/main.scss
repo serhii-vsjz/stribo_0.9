@@ -48,10 +48,7 @@ $border_red_line: 1px solid grey;
         }
 
         &:hover {
-
             background-color: rgba(225, 224, 255, 0.5);
-
-
         }
         .link {
             text-decoration: none;
@@ -67,7 +64,6 @@ $border_red_line: 1px solid grey;
         border: $border_line;
 
         .title {
-
             top: 0;
             text-align: center;
             font-size: 1.2em;
@@ -76,11 +72,9 @@ $border_red_line: 1px solid grey;
 
         .picture {
             position: relative;
-
             width: 100%;
             height: auto;
             opacity: 0.9;
-
             z-index: 2;
             &:hover {
                 opacity: 1;
@@ -90,8 +84,8 @@ $border_red_line: 1px solid grey;
         .vendor {
             color: #a5c9d9;
             text-align: center;
-
         }
+
         .form_action {
             width: 90%;
             display: flex;
@@ -128,13 +122,12 @@ $border_red_line: 1px solid grey;
 
     .title__block
     {
-        border: 1px solid grey;
         margin-bottom: 30px;
         h3 {
-            color: #990200;
+            color: #2d2929;
         }
         h4 {
-            color: #626108;
+            color: #2d2d2b;
         }
     }
 

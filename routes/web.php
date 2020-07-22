@@ -81,5 +81,3 @@ Route::post('admin/products/upload', 'AdminController@productsUpload')->name('ad
 Route::post('admin/categories/upload', 'AdminController@categoriesUpload')->name('admin.categories.upload');
 
 
-
-

@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all()->where('parent_id', 0);
+        $categories = Category::all(['id', 'title', 'vendor', 'image', 'active','parent_id'])->where('parent_id', 0);
 
         return view('category.index', ['categories' => $categories, 'currentCategory' => '']);
     }
