@@ -16,19 +16,19 @@
                 <span>{{ $product->category->title }}</span>
                 <h3>Серия {{ $product->vendor }}</h3>
 
-                <table>
+                <table class="table table-bordered">
                     <tr>
                         <th>Артикул</th>
                         <th>Цена</th>
                         <th>Количество</th>
                     </tr>
-                    @for($i=0;$i<5;$i++)
-                        <tr>
-                            <td>EPC 8-G02</td>
-                            <td>22.5</td>
-                            <td>$300</td>
-                        </tr>
-                    @endfor
+
+                    <tr>
+                        <td>{{ $product->vendor}}</td>
+                        <td>{{ $product->price->getValue() }}</td>
+                        <td>55 шт</td>
+                    </tr>
+
 
 
                 </table>
