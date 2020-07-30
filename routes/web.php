@@ -54,6 +54,11 @@ Route::delete('product/{id}', 'ProductController@destroy')->name('product.destro
 //
 //});
 //
+Route::get('admin1', function () {
+    return view('admin.layouts.index1');
+});
+
+
 Route::get('admin', 'AdminController@index')->name('admin.index')->middleware('can:is_admin');
 Route::get('admin/admins', 'AdminController@admins')->name('admin.admins');
 Route::get('admin/charts', 'AdminController@charts')->name('admin.charts');

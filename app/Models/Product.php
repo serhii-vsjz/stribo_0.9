@@ -63,8 +63,6 @@ class Product extends Model
     {
         $id = Attribute::where('name', $name)->first()->get()->id;
 
-        dd($id);
-
         if(!$productAttribute = $this->productAttributes->where('attribute_id', $id)->first())
         {
             return false;
