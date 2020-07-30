@@ -30,7 +30,7 @@
         </tr>
         </thead>
 
-        <tbodpry>
+        <tbody>
         @foreach($products as $product)
 
             <tr>
@@ -40,7 +40,7 @@
             </tr>
 
         @endforeach
-        </tbodpry>
+        </tbody>
 
     </table>
 </div>

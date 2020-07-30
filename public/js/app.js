@@ -122,7 +122,18 @@
 // const app = new Vue({
 //     el: '#app',
 // });
-__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module './burger.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+__webpack_require__(/*! ./burger.js */ "./resources/js/burger.js");
+
+/***/ }),
+
+/***/ "./resources/js/burger.js":
+/*!********************************!*\
+  !*** ./resources/js/burger.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 

@@ -59,7 +59,7 @@ Route::get('admin1', function () {
 });
 
 
-Route::get('admin', 'AdminController@index')->name('admin.index')->middleware('can:is_admin');
+Route::get('admin', 'AdminController@index')->name('admin.index');
 Route::get('admin/admins', 'AdminController@admins')->name('admin.admins');
 Route::get('admin/charts', 'AdminController@charts')->name('admin.charts');
 Route::get('admin/buttons', 'AdminController@buttons')->name('admin.buttons');
