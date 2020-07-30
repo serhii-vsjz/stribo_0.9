@@ -2,14 +2,7 @@
 
 @section('content')
 
-<div class="upload">
-    <form action="{{ route('admin.categories.upload') }}" enctype="multipart/form-data" method="POST" >
-        @csrf
-        <label>Загрузить категории с Excel файла</label>
-        <input type="file" name="excel">
-        <input type="submit">
-    </form>
-</div>
+
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">

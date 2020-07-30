@@ -61,7 +61,7 @@ ul ul a {
 #sidebar {
   min-width: 250px;
   max-width: 250px;
-  min-height: 100vh; }
+  height: 100vh; }
   #sidebar a[data-toggle="collapse"] {
     position: relative; }
   #sidebar .dropdown-toggle::after {

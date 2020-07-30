@@ -17,6 +17,7 @@ class CreateAttributesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('type');
+            $table->string('group');
             $table->timestamps();
         });
     }

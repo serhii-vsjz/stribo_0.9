@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\CategoryImport;
+use App\Imports\PriceImport;
 use App\Imports\ProductsImport;
 use App\Models\Category;
 use App\Models\Product;
@@ -47,6 +48,18 @@ class AdminController extends Controller
         ]);
     }
 
+    public function uploads()
+    {
+        return view('admin.uploads');
+    }
+
+    public function priceUpload(Request $request)
+    {
+        Excel::import(new PriceImport(), $request->file('excel'));
+
+        return redirect(session('links')[1]); // Will redirect 1 links back
+    }
+
     public function productsUpload(Request $request)
     {
         $array = Excel::toArray(new ProductsImport(), $request->file('excel'));
@@ -60,7 +73,7 @@ class AdminController extends Controller
     {
         $array = Excel::import(new CategoryImport(), $request->file('excel'));
 
-        return redirect(route('admin.categories'));
+        return redirect()->back();
     }
 
     public function productsEdit(Category $category)

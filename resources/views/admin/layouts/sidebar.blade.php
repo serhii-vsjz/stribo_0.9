@@ -6,11 +6,23 @@
 
     <ul class="list-unstyled components">
         <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Контент</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
+            <a href="#ContentSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Контент</a>
+            <ul class="collapse list-unstyled" id="ContentSubmenu">
                 <li>
                     <a href="{{ route('admin.categories') }}">Категории</a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.products') }}">Продукты</a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.uploads') }}">Загрузка</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#PriceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Учет</a>
+            <ul class="collapse list-unstyled" id="PriceSubmenu">
                 <li>
                     <a href="{{ route('admin.products') }}">Продукты</a>
                 </li>
@@ -19,28 +31,6 @@
                 </li>
             </ul>
         </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-            <ul class="collapse list-unstyled" id="pageSubmenu">
-                <li>
-                    <a href="#">Page 1</a>
-                </li>
-                <li>
-                    <a href="#">Page 2</a>
-                </li>
-                <li>
-                    <a href="#">Page 3</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="#">Portfolio</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
+
     </ul>
 </nav>

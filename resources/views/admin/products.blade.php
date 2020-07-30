@@ -1,14 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<div class="upload">
-    <form action="{{ route('admin.products.upload') }}" enctype="multipart/form-data" method="POST" >
-        @csrf
-        <label>Загрузить категории с Excel файла</label>
-        <input type="file" name="excel">
-        <input type="submit">
-    </form>
-</div>
+
 
 <h1>Список продуктов</h1>
 
@@ -26,6 +19,7 @@
         <tr>
             <th>ID</th>
             <th>Артикул</th>
+            <th>Себестоимость</th>
             <th>Действие</th>
         </tr>
         </thead>
@@ -36,6 +30,7 @@
             <tr>
                 <td>{{ $product->id }}</td>
                 <td><a href="{{ route('product.show', ['product' => $product]) }}">{{ $product->vendor }}</a></td>
+                <td>{{ $product->price?$product->price->getCostPrice():''}}</td>
                 <td><a href="" class="delete" data-href=" {{ route('product.destroy', ['id' => $product->id]) }} ">Удалить</a></td>
             </tr>
 
@@ -82,8 +77,5 @@
         </div>
     </div>
 </div>
-
-
-
 
 @endsection

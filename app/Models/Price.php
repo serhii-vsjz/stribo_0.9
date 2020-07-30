@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Price extends Model
 {
+    protected $fillable = [
+        'product_id',
+        'value',
+        'is_calc',
+    ];
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
@@ -23,26 +29,26 @@ class Price extends Model
             'cost_id')->withPivot('contains', 'proportion');
     }
 
-    public function getValue()
+    /**
+     * Get cos
+     *
+     *
+     * @return float
+     */
+    public function getCostPrice(): float
     {
-
         if ($this->is_calc)
         {
             $value = 0;
             $costs = $this->costs;
             foreach ($costs as $cost)
             {
-                $value += $cost->value * $cost->pivot->contains * $cost->pivot->proportion;
+                return $value += $cost->value * $cost->pivot->contains * $cost->pivot->proportion;
             }
-
-            return $value;
         } else {
-            return $this->value;
+            return $value = $this->value;
         }
-
     }
-
-
 
 
 }

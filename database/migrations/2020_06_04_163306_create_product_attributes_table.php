@@ -20,9 +20,9 @@ class CreateProductAttributesTable extends Migration
             $table->foreign('product_id')->references('id')->on('products')->cascadeOnDelete();
             $table->unsignedBigInteger('attribute_id');
             $table->foreign('attribute_id')->references('id')->on('attributes')->cascadeOnDelete();
-            $table->string('string_value');
-            $table->float('float_value');
-            $table->integer('int_value');
+            $table->string('string_value')->nullable();
+            $table->float('float_value')->nullable();
+            $table->integer('int_value')->nullable();
         });
     }
 

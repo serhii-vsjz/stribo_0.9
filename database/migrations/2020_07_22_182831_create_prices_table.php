@@ -17,7 +17,7 @@ class CreatePricesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->float('value')->nullable(true);
-            $table->boolean('is_calc');
+            $table->boolean('is_calc')->default(false);
             $table->timestamps();
         });
     }
