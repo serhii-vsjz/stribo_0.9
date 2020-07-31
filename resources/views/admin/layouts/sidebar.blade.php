@@ -15,6 +15,9 @@
                     <a href="{{ route('admin.products') }}">Продукты</a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.costs') }}">Комплектующие</a>
+                </li>
+                <li>
                     <a href="{{ route('admin.uploads') }}">Загрузка</a>
                 </li>
             </ul>

@@ -76,6 +76,8 @@ Route::get('admin/user/{user}/active','AdminController@userActive')->name('admin
 // work with product/categories
 Route::get('admin/categories', 'AdminController@categories')->name('admin.categories');
 Route::get('admin/products', 'AdminController@products')->name('admin.products');
+Route::get('admin/costs', 'AdminController@costs')->name('admin.costs');
+
 Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
 
 

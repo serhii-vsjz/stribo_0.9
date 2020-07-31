@@ -6,6 +6,7 @@ use App\Imports\CategoryImport;
 use App\Imports\PricesImport;
 use App\Imports\ProductsImport;
 use App\Models\Category;
+use App\Models\Cost;
 use App\Models\Product;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Services\ProductServiceInterface;
@@ -27,6 +28,13 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
+    public function categories()
+    {
+        return view('admin.categories', [
+            'categories' => Category::all()
+        ]);
+    }
+
     public function products()
     {
         return view('admin.products', [
@@ -34,10 +42,10 @@ class AdminController extends Controller
         ]);
     }
 
-    public function categories()
+    public function costs()
     {
-        return view('admin.categories', [
-            'categories' => Category::all()
+        return view('admin.costs', [
+            'costs' => Cost::all(),
         ]);
     }
 

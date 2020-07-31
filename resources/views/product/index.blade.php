@@ -39,6 +39,7 @@
         <tr>
             <td>Артикул</td>
             <td>Цена</td>
+
         </tr>
         @foreach($products as $product)
             <tr>
@@ -46,7 +47,15 @@
                     {{ $product->vendor }}
                 </td>
                 <td>
-                    {{ $product->price->getValue() }}
+                    {{ dd($product->price->is_calc) }}
+                    {{ $product->price?$product->price->kit:'X' }}
+
+                    @if($product->price->is_calc)
+                        <a href="#">calc</a>
+                    @else
+                        <a href="#">not calc</a>
+                    @endif
+
                 </td>
             </tr>
         @endforeach

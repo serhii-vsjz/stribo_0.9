@@ -61,17 +61,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $product = Product::create([
-            'category_id' => $request->category,
+            'category_id' => $request->parent_id,
             'vendor' => $request->vendor,
         ]);
 
-        $data = [
-            'id' => $product->id,
-            'category' => $request->category_id,
-            'vendor' => $request->vendor
-        ];
-
-        return $data;
+        redirect(session('links')[2]); // Will redirect 2 links back
 
         /*
         $product = $this->productService->createProduct($request->parent_id, $request->vendor);

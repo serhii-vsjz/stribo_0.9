@@ -15,6 +15,25 @@ class Price extends Model
         'is_calc',
     ];
 
+    public function __get($name)
+    {
+        if ($name == 'kit')
+        {
+            if ($this->is_calc)
+            {
+                $value = 0;
+                $costs = $this->costs;
+                foreach ($costs as $cost)
+                {
+                    $value += $cost->value * $cost->pivot->contains * $cost->pivot->proportion;
+                }
+                return 555;
+            } else {
+                return $value = $this->value;
+            }
+        }
+    }
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);
@@ -33,11 +52,12 @@ class Price extends Model
      * Get the base price of a product
      *
      *
-     * @return float
+     *
      */
-    public function getValue(): float
+    public function getValue()
     {
-        if ($this->is_calc)
+        return $this->value;
+        /*if ($this->is_calc)
         {
             $value = 0;
             $costs = $this->costs;
@@ -47,7 +67,7 @@ class Price extends Model
             }
         } else {
             return $value = $this->value;
-        }
+        }*/
     }
 
 
