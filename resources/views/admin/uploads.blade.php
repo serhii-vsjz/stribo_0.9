@@ -1,15 +1,7 @@
 @extends('admin.layouts.app')
 
 @section('content')
-
-    <div class="upload">
-        <form action="{{ route('admin.products.upload') }}" enctype="multipart/form-data" method="POST" >
-            @csrf
-            <label>Товары</label>
-            <input type="file" name="excel">
-            <input type="submit">
-        </form>
-    </div>
+<div class="uploads">
 
     <div class="upload">
         <form action="{{ route('admin.categories.upload') }}" enctype="multipart/form-data" method="POST" >
@@ -21,11 +13,22 @@
     </div>
 
     <div class="upload">
-        <form action="{{ route('admin.price.upload') }}" enctype="multipart/form-data" method="POST" >
+        <form action="{{ route('admin.products.upload') }}" enctype="multipart/form-data" method="POST" >
             @csrf
-            <label>Цены</label>
+            <label>Товары с атрибутами</label>
             <input type="file" name="excel">
             <input type="submit">
         </form>
     </div>
+
+    <div class="upload">
+        <form action="{{ route('admin.price.upload') }}" enctype="multipart/form-data" method="POST" >
+            @csrf
+            <label>Товары с ценами</label>
+            <input type="file" name="excel">
+            <input type="submit">
+        </form>
+    </div>
+
+</div>
 @endsection

@@ -30,12 +30,12 @@ class Price extends Model
     }
 
     /**
-     * Get cos
+     * Get the base price of a product
      *
      *
      * @return float
      */
-    public function getCostPrice(): float
+    public function getValue(): float
     {
         if ($this->is_calc)
         {

@@ -180,6 +180,21 @@ $border_red_line: 1px solid grey;
         }
     }
 
+    .color__selector {
+        width: 100px;
+        height: 30px;
+        background: #c6c6c6;
+        border: 1px solid gray;
+        border-radius: 5px;
+
+        .item {
+            background: linear-gradient(to left, #ffffff, #001152);
+            border: 1px solid rgba(7, 27, 47, 0.45);
+            width: 20px;
+            height: 20px;
+        }
+    }
+
 
     .table {
         width: 100%;

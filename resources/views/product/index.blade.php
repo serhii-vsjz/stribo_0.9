@@ -29,6 +29,30 @@
             <img class="drawing" src="{{ asset('drawing/' . $currentCategory->image) }}" alt="">
         </div>
     </div>
+{{--    <div class="color__selector">--}}
+{{--        <div class="item"></div>--}}
+{{--        <div class="item"></div>--}}
+{{--        <div class="item"></div>--}}
+{{--    </div>--}}
+
+    <table class="table">
+        <tr>
+            <td>Артикул</td>
+            <td>Цена</td>
+        </tr>
+        @foreach($products as $product)
+            <tr>
+                <td>
+                    {{ $product->vendor }}
+                </td>
+                <td>
+                    {{ $product->price->getValue() }}
+                </td>
+            </tr>
+        @endforeach
+    </table>
+
+
 
 
 

@@ -15,8 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('category_id');
-            $table->string('title')->nullable(true);
+            $table->unsignedBigInteger('category_id')->default(1);
             $table->string('vendor');
             $table->timestamps();
         });

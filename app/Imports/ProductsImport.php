@@ -11,14 +11,13 @@ class ProductsImport implements ToModel
     /**
     * @param array $row
     *
-    * @return \Illuminate\Database\Eloquent\Model|null
+    * @return Product
     */
     public function model(array $row)
     {
         $product = new Product([
             'category_id' => $row[0],
             'vendor' => $row[1],
-            'image' => $row[2],
         ]);
 
         $product->save();
