@@ -90,4 +90,6 @@ Route::post('admin/price/upload/', 'AdminController@priceUpload')->name('admin.p
 Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
 Route::post('admin/categories/upload', 'AdminController@categoriesUpload')->name('admin.categories.upload');
 
+Route::post('admin/get_price', 'PriceController@getPrice')->name('getPrice');
+
 

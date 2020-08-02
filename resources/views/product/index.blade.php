@@ -18,22 +18,24 @@
             <div class="h3">
                 {{ $currentCategory->vendor }}
             </div>
-
         </div>
-
     </div>
 
-
+{{--
     <div class="chart__block">
         <div class="picture_drawing">
             <img class="drawing" src="{{ asset('drawing/' . $currentCategory->image) }}" alt="">
         </div>
     </div>
-{{--    <div class="color__selector">--}}
-{{--        <div class="item"></div>--}}
-{{--        <div class="item"></div>--}}
-{{--        <div class="item"></div>--}}
-{{--    </div>--}}
+--}}
+
+{{--
+    <div class="color__selector">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+--}}
 
     <table class="table">
         <tr>
@@ -42,21 +44,21 @@
 
         </tr>
         @foreach($products as $product)
-            <tr>
+
+            <tr class="row">
                 <td>
                     {{ $product->vendor }}
                 </td>
+                @if($product->price->is_calc)
                 <td>
-                    {{ dd($product->price->is_calc) }}
-                    {{ $product->price?$product->price->kit:'X' }}
-
-                    @if($product->price->is_calc)
-                        <a href="#">calc</a>
-                    @else
-                        <a href="#">not calc</a>
-                    @endif
-
+                    {{$product->price->getValue()}}
                 </td>
+                <td>
+                    <input class="stroke" type="text">
+                    <button class="get_price" product_id="{{ $product->id }}">Просчитать</button>
+                    <p class="price">777</p>
+                </td>
+                @endif
             </tr>
         @endforeach
     </table>
@@ -88,7 +90,10 @@
                 @foreach($attributes as $attribute)
                     <td>
                         @if($product->getAttributeValueById($attribute->id))
-                            {{ $product->getAttributeValueById($attribute->id) }}
+                            <td>
+                                {{ $product->getAttributeValueById($attribute->id) }}
+                            </td>
+
                         @else
                             -
                         @endif
@@ -102,6 +107,45 @@
 
 
 </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js') }}"></script>
+
+    <script>
+        $(function () {
+
+            $('.get_price').on('click',function(){
+
+                let row = $("this").parent("row");
+
+                let product = $(this).attr('product_id');
+                let stroke = $(this).siblings(".stroke").val();
+                let price = $(this).siblings(".price");
+
+
+
+
+
+
+
+
+
+                $.ajax({
+                    url: "/admin/get_price",
+                    type: "POST",
+                    data: {
+                        "_token": $('meta[name="csrf-token"]').attr('content'),
+                        product:product,
+                        stroke:stroke,
+                    },
+
+                    success: function (result) {
+                        price.text(result)
+                    }
+                });
+            })
+        })
+    </script>
 
 @endsection
 
