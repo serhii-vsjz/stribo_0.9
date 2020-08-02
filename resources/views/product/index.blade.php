@@ -47,13 +47,20 @@
 
             <tr class="row">
                 <td>
-                    {{ $product->vendor }}
+                    {{ $product->id }}
                 </td>
                 @if($product->price->is_calc)
                 <td>
                     {{$product->price->getValue()}}
                 </td>
                 <td>
+                    <form action="{{ route('getPrice')}}" method="POST">
+                        @csrf
+                        <input class="stroke" type="text" name="stroke">
+                        <input class="product_id" type="text" name="product_id">
+                        <input type="submit" value="?">
+
+                    </form>
                     <input class="stroke" type="text">
                     <button class="get_price" product_id="{{ $product->id }}">Просчитать</button>
                     <p class="price">777</p>
@@ -121,13 +128,6 @@
                 let product = $(this).attr('product_id');
                 let stroke = $(this).siblings(".stroke").val();
                 let price = $(this).siblings(".price");
-
-
-
-
-
-
-
 
 
                 $.ajax({

@@ -17,8 +17,9 @@ class CreatePriceCostTable extends Migration
             $table->id();
             $table->unsignedBigInteger('price_id');
             $table->unsignedBigInteger('cost_id');
-            $table->float('contains');
-            $table->float('proportion');
+            $table->float('contains', 8, 3)->default(1);
+            $table->float('proportion')->default(1);
+            $table->boolean('coefficient')->default(false);
             $table->timestamps();
         });
     }

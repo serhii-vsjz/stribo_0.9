@@ -27,7 +27,7 @@ class Price extends Model
             Cost::class,
             'price_cost',
             'price_id',
-            'cost_id')->withPivot('contains', 'proportion');
+            'cost_id')->withPivot('contains', 'proportion', 'coefficient');
     }
 
     /**
@@ -50,6 +50,31 @@ class Price extends Model
         } else {
             return $value = $this->value;
         }
+    }
+
+    /*
+     *
+     *
+     */
+    public function getPriceByCoefficient($coefficient)
+    {
+        $coefficient /= 1000;
+        $value0 = $this->getValue();
+        $value = 0;
+        $costs = $this->costs;
+
+
+        foreach ($costs as $cost)
+        {
+            if ($cost->pivot->coefficient)
+            {
+                $value += $cost->value * $coefficient * $cost->pivot->proportion;
+            }
+        }
+        $result = $value0 + $value;
+
+
+        return $result;
     }
 
 
