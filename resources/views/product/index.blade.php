@@ -49,7 +49,7 @@
                 <td>
                     {{ $product->id }}
                 </td>
-                @if($product->price->is_calc)
+                @if($product->prime->is_calc)
                 <td>
                     {{$product->price->getValue()}}
                 </td>

@@ -2,11 +2,18 @@
 
 namespace App\Imports;
 
+use App\Models\Category;
 use App\Models\PrimeCost;
+use App\Services\CategoryServiceInterface;
+use App\Services\ProductService;
+use App\Services\ProductServiceInterface;
 use Maatwebsite\Excel\Concerns\ToModel;
 
 class PrimeCostsImport implements ToModel
 {
+    private $productService;
+
+
     /**
     * @param array $row
     *
@@ -14,9 +21,15 @@ class PrimeCostsImport implements ToModel
     */
     public function model(array $row)
     {
+
+        $productService = new ProductService();
+        $product = $productService->getProductByVendor($row[1]);
+
+
         return new PrimeCost([
-            'product_id' => $row[0],
-            'cost' => $row[1],
+            'product_id' => $product->id,
+            'cost' => $row[2],
+            'is_calc' => $row[3]??0,
         ]);
     }
 }

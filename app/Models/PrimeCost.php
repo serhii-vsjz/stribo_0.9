@@ -8,7 +8,8 @@ class PrimeCost extends Model
 {
     protected $fillable = [
         'product_id',
-        'cost'
+        'cost',
+        'is_calc',
     ];
     public $components;
 
@@ -75,8 +76,7 @@ class PrimeCost extends Model
 
             return strval($this->getPrimeCost($coefficient) + $this->getServiceCost());
         } else {
-
-            return strval($this->value);
+             return $this->cost;
         }
     }
 }

@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use App\Imports\CategoryImport;
 use App\Imports\PricesImport;
 use App\Imports\PrimeCostsImport;
+use App\Imports\ProductComponentsImport;
 use App\Imports\ProductsImport;
+use App\Imports\ServicesImport;
 use App\Models\Category;
 use App\Models\Cost;
 use App\Models\PrimeCost;
 use App\Models\Product;
+use App\Models\Service;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Services\ProductServiceInterface;
 use Illuminate\Http\Request;
@@ -51,6 +54,13 @@ class AdminController extends Controller
         ]);
     }
 
+    public function services()
+    {
+        return view('admin.services', [
+            'services' => Service::all(),
+        ]);
+    }
+
     public function categoryShow(Category $category)
     {
         return view('admin.categories', [
@@ -60,11 +70,35 @@ class AdminController extends Controller
 
     public function uploads()
     {
-        return view('admin.uploads');
+        $list = ['category', 'product', "prime cost", 'services', 'components'];
+        return view('admin.uploads', ['list' => $list]);
+    }
+
+    public function upload(Request $request)
+    {
+        switch ($request->list) {
+            case ('category'):
+                Excel::import(new CategoryImport(), $request->file('excel'));
+                break;
+            case ('product'):
+                Excel::import(new ProductsImport(), $request->file('excel'));
+                break;
+            case ("prime cost"):
+                Excel::import(new PrimeCostsImport(), $request->file('excel'));
+                break;
+            case ('services'):
+                Excel::import(new ServicesImport(), $request->file('excel'));
+                break;
+            case ('components'):
+                Excel::import(new ProductComponentsImport(), $request->file('excel'));
+                break;
+        }
+
+        return redirect()->back();
     }
 
 
-    public function productsUpload(Request $request)
+    private function productsUpload(Request $request)
     {
         $array = Excel::toArray(new ProductsImport(), $request->file('excel'));
 
@@ -73,26 +107,28 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function priceUpload(Request $request)
+    private function priceUpload(Request $request)
     {
         Excel::import(new PricesImport(), $request->file('excel'));
 
         return redirect()->back();
     }
 
-    public function primeCosts(Request $request)
+    private function primeCostsUpload(Request $request)
     {
         Excel::import(new PrimeCostsImport(), $request->file('excel'));
 
         return redirect()->back();
     }
 
-    public function categoriesUpload(Request $request)
+    private function servicesUpload(Request $request)
     {
-        $array = Excel::import(new CategoryImport(), $request->file('excel'));
+        Excel::import(new ServicesImport(), $request->file('excel'));
 
         return redirect()->back();
     }
+
+
 
     public function productsEdit(Category $category)
     {
@@ -102,12 +138,5 @@ class AdminController extends Controller
             'currentCategory' => $category??'',
         ]);
 
-    }
-
-    public function productsUpdate(Category $category, Request $request)
-    {
-        echo "here";
-        dd($request->request);
-        die();
     }
 }

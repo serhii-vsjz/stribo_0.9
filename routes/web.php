@@ -77,6 +77,7 @@ Route::get('admin/user/{user}/active','AdminController@userActive')->name('admin
 Route::get('admin/categories', 'AdminController@categories')->name('admin.categories');
 Route::get('admin/products', 'AdminController@products')->name('admin.products');
 Route::get('admin/costs', 'AdminController@costs')->name('admin.costs');
+Route::get('admin/services', 'AdminController@services')->name('admin.services');
 
 Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
 
@@ -84,12 +85,8 @@ Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('a
 Route::post('admin/category/{category}/products/edit', 'AdminController@productsEdit')->name('admin.products.edit');
 Route::post('admin/category/{category}/products/update', 'AdminController@productsUpdate')->name('admin.products.update');
 
-
 Route::get('admin/uploads', 'AdminController@uploads')->name('admin.uploads');
-Route::post('admin/price/upload/', 'AdminController@priceUpload')->name('admin.price.upload');
-Route::post('admin/prime_costs/upload/', 'AdminController@primeCostsUpload')->name('admin.priceCosts.upload');
-Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
-Route::post('admin/categories/upload', 'AdminController@categoriesUpload')->name('admin.categories.upload');
+Route::post('admin/upload', 'AdminController@upload')->name('admin.upload');
 
 Route::post('admin/get_price', 'PriceController@getPrice')->name('getPrice');
 

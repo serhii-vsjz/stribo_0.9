@@ -12,7 +12,7 @@ class ProductService implements ProductServiceInterface
 {
     private $categoryService;
 
-    public function __construct(CategoryServiceInterface $categoryService)
+    public function __construct(CategoryServiceInterface $categoryService = null)
     {
         $this->categoryService = $categoryService;
     }
@@ -117,5 +117,13 @@ class ProductService implements ProductServiceInterface
                 $this->addProductAttributes($product, $attributes);
             }
         }
+    }
+
+    public function getProductByVendor($vendor): Product
+    {
+
+        $product = Product::where('vendor', $vendor)->first();
+
+        return $product;
     }
 }

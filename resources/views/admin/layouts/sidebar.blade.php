@@ -18,14 +18,17 @@
                     <a href="{{ route('admin.costs') }}">Комплектующие</a>
                 </li>
                 <li>
+                    <a href="{{ route('admin.services') }}">Услуги</a>
+                </li>
+                <li>
                     <a href="{{ route('admin.uploads') }}">Загрузка</a>
                 </li>
             </ul>
         </li>
 
         <li>
-            <a href="#PriceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Учет</a>
-            <ul class="collapse list-unstyled" id="PriceSubmenu">
+            <a href="#DateSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Учет</a>
+            <ul class="collapse list-unstyled" id="DateSubmenu">
                 <li>
                     <a href="{{ route('admin.products') }}">Продукты</a>
                 </li>

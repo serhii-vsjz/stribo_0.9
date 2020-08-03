@@ -20,6 +20,8 @@ class ProductsImport implements ToModel
             'vendor' => $row[1],
         ]);
 
+     /* Add product attributes
+
         $product->save();
 
         $productAttribute = new ProductAttribute();
@@ -27,7 +29,9 @@ class ProductsImport implements ToModel
         $productAttribute->attribute_id = $row[3];
         $productAttribute->int_value = $row[4];
         $productAttribute->save();
+     */
 
         return $product;
     }
 }
+

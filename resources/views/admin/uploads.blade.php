@@ -2,15 +2,22 @@
 
 @section('content')
 <div class="uploads">
+    <h2>Загрузки</h2>
 
     <div class="upload">
-        <form action="{{ route('admin.categories.upload') }}" enctype="multipart/form-data" method="POST" >
+        <form action="{{ route('admin.upload') }}" enctype="multipart/form-data" method="POST" >
             @csrf
-            <label>Категории</label>
+            <label>Выберите файл для загрузки</label>
             <input type="file" name="excel">
+            <select name="list" id="list">
+                @foreach($list as $upload)
+                <option value="{{ $upload }}">{{ $upload }}</option>
+                @endforeach
+            </select>
             <input type="submit">
         </form>
     </div>
+{{--
 
     <div class="upload">
         <form action="{{ route('admin.products.upload') }}" enctype="multipart/form-data" method="POST" >
@@ -22,9 +29,9 @@
     </div>
 
     <div class="upload">
-        <form action="{{ route('admin.price.upload') }}" enctype="multipart/form-data" method="POST" >
+        <form action="{{ route('admin.priceCosts.upload') }}" enctype="multipart/form-data" method="POST" >
             @csrf
-            <label>Товары с ценами</label>
+            <label>Товары + себестоимость</label>
             <input type="file" name="excel">
             <input type="submit">
         </form>
@@ -39,5 +46,17 @@
         </form>
     </div>
 
+    <div class="upload">
+        <form action="{{ route('admin.services.upload') }}" enctype="multipart/form-data" method="POST" >
+            @csrf
+            <label>Услуги</label>
+            <input type="file" name="excel">
+            <input type="submit">
+        </form>
+    </div>
+
+--}}
 </div>
+
+
 @endsection
