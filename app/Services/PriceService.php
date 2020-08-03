@@ -14,7 +14,8 @@ class PriceService implements PriceServiceInterface
     {
         $markup = Markup::where('is_base', 1)->first()->getValue();
 
-        $products = Product::all();
+        $products = Product::all()->with('primeCost');
+        dd($products);
         foreach ($products as $product)
         {
             $primeCost = $product->primeCost->getValue();

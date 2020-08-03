@@ -9,22 +9,68 @@
     <title>Stribo - Admin Panel</title>
 
     <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css') }}" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('css/admin.css')}}">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
     <!-- Font Awesome JS -->
-    <script defer src="{{ asset('https://use.fontawesome.com/releases/v5.0.13/js/solid.js') }}" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="{{ asset('https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js') }}" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
 
 <body>
 <div class="wrapper">
 
     @include('admin.layouts.sidebar')
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Stribo</h3>
+        </div>
+a
+        <ul class="list-unstyled components">
+            <li class="active">
+                <a href="#ProductSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Контент</a>
+                <ul class="collapse list-unstyled" id="ProductSubmenu">
+                    <li>
+                        <a href="{{ route('admin.categories') }}">Категории</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.products') }}">Продукты</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.costs') }}">Комплектующие</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.services') }}">Услуги</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.uploads') }}">Загрузка</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#DateSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Учет</a>
+                <ul class="collapse list-unstyled" id="DateSubmenu">
+                    <li>
+                        <a href="{{ route('admin.products') }}">Продукты</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="#SettingSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Учет</a>
+                <ul class="collapse list-unstyled" id="SettingSubmenu">
+                    <li>
+                        <a href="{{ route('admin.products') }}">Настройки</a>
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+    </nav>
 
     <!-- Page Content -->
     <div id="content">
@@ -48,17 +94,23 @@
 
 </div>
 
-<script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
+
 <!-- jQuery CDN - Slim version (=without AJAX) -->
-<script src="{{ asset('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <!-- Popper.JS -->
-<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js') }}" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 <!-- Bootstrap JS -->
-<script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js') }}" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-<!-- jQuery Custom Scroller CDN -->
-<script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<!-- Current script -->
-<script src="{{ asset('js/admin.js') }}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function () {
+
+        $('#sidebarCollapse').on('click', function () {
+            $('#sidebar').toggleClass('active');
+        });
+    });
+
+</script>
 
 
 </body>

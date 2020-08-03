@@ -40,10 +40,12 @@ class AdminController extends Controller
         ]);
     }
 
-    public function products()
+    public function products(Request $request)
     {
+        $products = Product::paginate(30);
+
         return view('admin.products', [
-            'products' => Product::all(),
+            'products' => $products
         ]);
     }
 

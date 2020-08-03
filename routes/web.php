@@ -87,3 +87,6 @@ Route::post('admin/get_price', 'PriceController@getPrice')->name('getPrice');
 Route::get('admin/set_price', 'PriceController@setPrice')->name('admin.set.price');
 
 
+Route::get('test', function () {
+   return view('test');
+});

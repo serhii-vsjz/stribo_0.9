@@ -10,6 +10,7 @@ use App\Services\PriceService;
 use App\Services\PriceServiceInterface;
 use App\Services\ProductService;
 use App\Services\ProductServiceInterface;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -45,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->bind(
             PriceServiceInterface::class,
-            PriceService::class
+            PriceService ::class
         );
     }
 
@@ -56,6 +57,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Paginator::defaultView('vendor.pagination.bootstrap-4');
     }
 }

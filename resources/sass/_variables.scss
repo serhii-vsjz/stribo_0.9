@@ -9,7 +9,8 @@ $line-height-base: 1.6;
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;
-$purple: #000041;
+$grey: #727272;
+$purple: #9561e2;
 $pink: #f66d9b;
 $red: #e3342f;
 $orange: #f6993f;
@@ -18,8 +19,5 @@ $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
-// Custom
-$border_line: 1px solid #C0C0C0;
-$grey: #888888;
-
-
+// Border
+$border_line: 1px solid $grey;

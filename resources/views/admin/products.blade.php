@@ -4,6 +4,16 @@
     <form action="{{ route('admin.set.price') }}" method="GET">
         <input type="submit" value="Установить цены по базовой наценке">
     </form>
+
+    <form action="{{ route('admin.products') }}">
+        <select name="pages" id="pages">
+            <option value="25">25</option>
+            <option value="50">25</option>
+            <option value="50">25</option>
+            <option value="50">25</option>
+
+        </select>
+    </form>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -35,8 +45,10 @@
                     @endforeach
                     </tbody>
                 </table>
+
             </div>
         </div>
     </div>
+    {{ $products->links() }}
 
 @endsection
