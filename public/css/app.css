@@ -167,6 +167,8 @@ html, body {
   flex-wrap: wrap; }
   .main__content .card.disabled {
     background-color: rgba(205, 205, 205, 0.62); }
+  .main__content .card.hidden {
+    display: none; }
   .main__content .card {
     overflow: hidden;
     padding: 5px;

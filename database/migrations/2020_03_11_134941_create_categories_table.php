@@ -21,6 +21,7 @@ class CreateCategoriesTable extends Migration
             $table->string('image');
             $table->string('drawing')->default('empty_drawing.png');
             $table->boolean('active')->default(false);
+            $table->boolean('hide')->default(true);
             $table->timestamps();
         });
     }

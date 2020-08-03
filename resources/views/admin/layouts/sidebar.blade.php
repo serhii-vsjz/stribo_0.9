@@ -32,23 +32,18 @@
                 <li>
                     <a href="{{ route('admin.products') }}">Продукты</a>
                 </li>
-                <li>
-                    <a href="#">Home 3</a>
-                </li>
             </ul>
         </li>
 
         <li>
-            <a href="#PriceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Цены</a>
-            <ul class="collapse list-unstyled" id="PriceSubmenu">
+            <a href="#SettingSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Учет</a>
+            <ul class="collapse list-unstyled" id="SettingSubmenu">
                 <li>
-                    <a href="{{ route('admin.products') }}">Продукты</a>
-                </li>
-                <li>
-                    <a href="#">Home 3</a>
+                    <a href="{{ route('admin.products') }}">Настройки</a>
                 </li>
             </ul>
         </li>
+
 
     </ul>
 </nav>

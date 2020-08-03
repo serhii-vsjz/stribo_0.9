@@ -49,6 +49,7 @@ class Category extends Model
         'image',
         'drawing',
         'active',
+        'hide',
     ];
 
     public function children(): HasMany

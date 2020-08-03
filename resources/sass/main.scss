@@ -35,6 +35,12 @@ $border_red_line: 1px solid grey;
     {
         background-color: rgba(205, 205, 205, 0.62);
     }
+
+    .card.hidden
+    {
+        display: none;
+    }
+
     .card {
         .link.disabled
         {

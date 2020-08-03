@@ -47,9 +47,9 @@
 
             <tr class="row">
                 <td>
-                    {{ $product->id }}
+                    {{ $product->vendor }}
                 </td>
-                @if($product->prime->is_calc)
+
                 <td>
                     {{$product->price->getValue()}}
                 </td>
@@ -65,7 +65,7 @@
                     <button class="get_price" product_id="{{ $product->id }}">Просчитать</button>
                     <p class="price">777</p>
                 </td>
-                @endif
+
             </tr>
         @endforeach
     </table>

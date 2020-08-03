@@ -18,7 +18,6 @@ use Illuminate\Support\Collection;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property int|null $feature_table_id
- * @property int|null $price_table_id
  * @property-read \App\Models\Category $category
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\PriceTable[] $prices
  * @property-read int|null $prices_count
@@ -47,6 +46,11 @@ class Product extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function price(): HasOne
+    {
+        return $this->hasOne(Price::class);
     }
 
     public function primeCost(): HasOne

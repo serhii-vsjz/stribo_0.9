@@ -54,10 +54,6 @@ Route::delete('product/{id}', 'ProductController@destroy')->name('product.destro
 //
 //});
 //
-Route::get('admin1', function () {
-    return view('admin.layouts.index1');
-});
-
 
 Route::get('admin', 'AdminController@index')->name('admin.index');
 Route::get('admin/admins', 'AdminController@admins')->name('admin.admins');
@@ -81,7 +77,6 @@ Route::get('admin/services', 'AdminController@services')->name('admin.services')
 
 Route::get('admin/category/{category}', 'AdminController@categoryShow')->name('admin.category.show');
 
-
 Route::post('admin/category/{category}/products/edit', 'AdminController@productsEdit')->name('admin.products.edit');
 Route::post('admin/category/{category}/products/update', 'AdminController@productsUpdate')->name('admin.products.update');
 
@@ -89,5 +84,6 @@ Route::get('admin/uploads', 'AdminController@uploads')->name('admin.uploads');
 Route::post('admin/upload', 'AdminController@upload')->name('admin.upload');
 
 Route::post('admin/get_price', 'PriceController@getPrice')->name('getPrice');
+Route::get('admin/set_price', 'PriceController@setPrice')->name('admin.set.price');
 
 

@@ -74,7 +74,7 @@ class PrimeCost extends Model
         if (count($this->components))
         {
 
-            return strval($this->getPrimeCost($coefficient) + $this->getServiceCost());
+            return $this->getPrimeCost($coefficient) + $this->getServiceCost();
         } else {
              return $this->cost;
         }

@@ -10,4 +10,5 @@ interface CategoryServiceInterface
 {
     public function getCategoryById(int $id): Category;
     public function getCategoryByVendor($name);
+    public function getMainCategories();
 }

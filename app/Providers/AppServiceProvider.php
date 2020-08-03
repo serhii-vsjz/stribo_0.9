@@ -6,6 +6,8 @@ use App\Console\Commands\ModelMakeCommand;
 
 use App\Services\CategoryService;
 use App\Services\CategoryServiceInterface;
+use App\Services\PriceService;
+use App\Services\PriceServiceInterface;
 use App\Services\ProductService;
 use App\Services\ProductServiceInterface;
 use Illuminate\Support\Facades\Schema;
@@ -39,6 +41,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             CategoryServiceInterface::class,
             CategoryService::class
+        );
+
+        $this->app->bind(
+            PriceServiceInterface::class,
+            PriceService::class
         );
     }
 

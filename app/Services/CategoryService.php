@@ -18,4 +18,12 @@ class CategoryService implements CategoryServiceInterface
     {
         return Category::find($id);
     }
+
+    public function getMainCategories()
+    {
+        $categories = Category::all(['id', 'title', 'vendor', 'image', 'parent_id', 'active','hide'])
+            ->where('hide', false)->where('parent_id', 0);
+
+        return $categories;
+    }
 }

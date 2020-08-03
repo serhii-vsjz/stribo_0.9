@@ -3,19 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Services\CategoryServiceInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
+    private $categoryService;
+    public function __construct(CategoryServiceInterface $categoryService)
+    {
+        $this->categoryService = $categoryService;
+    }
+
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function index()
     {
-        $categories = Category::all(['id', 'title', 'vendor', 'image', 'active','parent_id'])->where('parent_id', 0);
+        $categories = $this->categoryService->getMainCategories();
 
         return view('category.index', ['categories' => $categories, 'currentCategory' => '']);
     }

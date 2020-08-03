@@ -1,5 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
+
+    <form action="{{ route('admin.set.price') }}" method="GET">
+        <input type="submit" value="Установить цены по базовой наценке">
+    </form>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -23,7 +27,7 @@
                         <tr>
                             <td>{{ $product->id }}</td>
                             <td><a href="{{ route('product.show', ['product' => $product]) }}">{{ $product->vendor }}</a></td>
-                            <td>{{ $product->price?$product->price->getValue():''}}</td>
+                            <td>{{ $product->price?$product->price->getValue():'--' }}</td>
                             <td>{{ $product->primeCost?$product->primeCost->getValue():'' }}</td>
                             <td><a href="" class="delete" data-href=" {{ route('product.destroy', ['id' => $product->id]) }} ">Удалить</a></td>
                         </tr>
