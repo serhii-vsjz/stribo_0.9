@@ -30,5 +30,14 @@
         </form>
     </div>
 
+    <div class="upload">
+        <form action="{{ route('admin.priceCosts.upload') }}" enctype="multipart/form-data" method="POST" >
+            @csrf
+            <label>Себестоимость</label>
+            <input type="file" name="excel">
+            <input type="submit">
+        </form>
+    </div>
+
 </div>
 @endsection

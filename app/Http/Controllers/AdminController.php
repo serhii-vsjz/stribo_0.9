@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Imports\CategoryImport;
 use App\Imports\PricesImport;
+use App\Imports\PrimeCostsImport;
 use App\Imports\ProductsImport;
 use App\Models\Category;
 use App\Models\Cost;
+use App\Models\PrimeCost;
 use App\Models\Product;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Services\ProductServiceInterface;
@@ -74,6 +76,13 @@ class AdminController extends Controller
     public function priceUpload(Request $request)
     {
         Excel::import(new PricesImport(), $request->file('excel'));
+
+        return redirect()->back();
+    }
+
+    public function primeCosts(Request $request)
+    {
+        Excel::import(new PrimeCostsImport(), $request->file('excel'));
 
         return redirect()->back();
     }

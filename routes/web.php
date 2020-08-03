@@ -87,6 +87,7 @@ Route::post('admin/category/{category}/products/update', 'AdminController@produc
 
 Route::get('admin/uploads', 'AdminController@uploads')->name('admin.uploads');
 Route::post('admin/price/upload/', 'AdminController@priceUpload')->name('admin.price.upload');
+Route::post('admin/prime_costs/upload/', 'AdminController@primeCostsUpload')->name('admin.priceCosts.upload');
 Route::post('admin/products/upload', 'AdminController@productsUpload')->name('admin.products.upload');
 Route::post('admin/categories/upload', 'AdminController@categoriesUpload')->name('admin.categories.upload');
 
