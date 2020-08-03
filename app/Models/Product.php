@@ -49,9 +49,19 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function price(): HasOne
+    public function primeCost(): HasOne
     {
-        return $this->hasOne(Price::class);
+        return $this->hasOne(PrimeCost::class);
+    }
+
+    public function components()
+    {
+        return $this->belongsToMany(
+            self::class,
+            'product_components',
+            'product_id',
+            'component_id')
+            ->withPivot('contains', 'proportion', 'coefficient');
     }
 
     public function productAttributes(): HasMany

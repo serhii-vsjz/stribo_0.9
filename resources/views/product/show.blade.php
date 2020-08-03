@@ -16,7 +16,7 @@
                 <span>{{ $product->category->title }}</span>
                 <h3>Серия {{ $product->vendor }}</h3>
 
-                <table class="table table-bordered">
+                <table class="table table-light">
                     <tr>
                         <th>Артикул</th>
                         <th>Цена</th>
@@ -25,8 +25,11 @@
 
                     <tr>
                         <td>{{ $product->vendor}}</td>
-                        <td>{{ $product->price->getValue() }}</td>
-                        <td>55 шт</td>
+                        <td>
+                            <h1 style="color: red"> {{ $product->primeCost->getValue(200)}} </h1>
+                        </td>
+
+                        <td>---</td>
                     </tr>
 
 
