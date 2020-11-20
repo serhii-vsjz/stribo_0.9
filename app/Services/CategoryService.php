@@ -6,7 +6,7 @@ namespace App\Services;
 
 use App\Models\Category;
 
-class CategoryService implements CategoryServiceInterface
+class  CategoryService implements CategoryServiceInterface
 {
     public function getCategoryByVendor($name)
     {
