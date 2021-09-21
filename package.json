@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "minimist": "^1.2.3",
-        "object-path": ">=0.11.5",
+        "object-path": ">=0.11.8",
         "test.js": "^1.0.0",
         "vendor": "^1.7.0",
         "static-eval": ">=2.0.2"
